@@ -63,7 +63,12 @@ const Hero = () => {
     
     const token = '8036004751:AAEQqRWhExzLjwnoW-YeETivcDsVfnwRnN4'
     const chatId = '1907166652' // Replace with your actual chat ID
-    const currentDate = new Date().toLocaleDateString('uz-UZ')
+    // Format date as DD/MM/YYYY
+    const now = new Date()
+    const day = String(now.getDate()).padStart(2, '0')
+    const month = String(now.getMonth() + 1).padStart(2, '0')
+    const year = now.getFullYear()
+    const currentDate = `${day}/${month}/${year}`
     const currentTime = new Date().toLocaleTimeString('uz-UZ', { hour: '2-digit', minute: '2-digit' })
     
     // Format phone number with spaces for better readability
