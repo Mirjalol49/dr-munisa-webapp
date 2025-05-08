@@ -1,0 +1,17 @@
+.btn {
+  font-family: "Wotfard", sans-serif;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #334bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+

@@ -1,0 +1,236 @@
+.hero {
+   padding-top: 180px;
+   width: 100%;
+   height: 100%;
+   --color: rgba(114, 114, 114, 0.3);
+   background-color: #191a1a;
+   background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+       linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+   background-size: 55px 55px;
+}
+
+.hero-wrapper {
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   color: #fff;
+}
+
+.hero-content-wrapper {
+   margin-top: 50px;
+   position: relative;
+}
+
+.hero-title {
+font-family: "Satoshi-Black", sans-serif;
+font-size:3.5rem;
+text-transform: uppercase;
+line-height: 1.2;
+
+
+
+
+
+}
+
+.hero-invert {
+   position: absolute;
+   right: 100px;
+   top: -40px;
+}
+
+.hero-text {
+   font-family: "Wotfard", sans-serif;
+   font-size: 1.5rem;
+   line-height: 1.5;
+   margin-top: 15px;
+}
+
+
+.book-content {
+   position: absolute;
+   top: 630px;
+   
+   width: 100%;
+   max-width: 1168px;
+   margin: 0 auto;
+  
+  
+     
+   
+}
+
+
+.book-wrapper {
+   border: 3px solid #000;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1.5rem 1rem;
+   border-radius: 15px;
+   background-color: #ffffff;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' viewBox='0 0 192 192'%3E%3Cpath fill='%23334bff' fill-opacity='0.2' d='M192 15v2a11 11 0 0 0-11 11c0 1.94 1.16 4.75 2.53 6.11l2.36 2.36a6.93 6.93 0 0 1 1.22 7.56l-.43.84a8.08 8.08 0 0 1-6.66 4.13H145v35.02a6.1 6.1 0 0 0 3.03 4.87l.84.43c1.58.79 4 .4 5.24-.85l2.36-2.36a12.04 12.04 0 0 1 7.51-3.11 13 13 0 1 1 .02 26 12 12 0 0 1-7.53-3.11l-2.36-2.36a4.93 4.93 0 0 0-5.24-.85l-.84.43a6.1 6.1 0 0 0-3.03 4.87V143h35.02a8.08 8.08 0 0 1 6.66 4.13l.43.84a6.91 6.91 0 0 1-1.22 7.56l-2.36 2.36A10.06 10.06 0 0 0 181 164a11 11 0 0 0 11 11v2a13 13 0 0 1-13-13 12 12 0 0 1 3.11-7.53l2.36-2.36a4.93 4.93 0 0 0 .85-5.24l-.43-.84a6.1 6.1 0 0 0-4.87-3.03H145v35.02a8.08 8.08 0 0 1-4.13 6.66l-.84.43a6.91 6.91 0 0 1-7.56-1.22l-2.36-2.36A10.06 10.06 0 0 0 124 181a11 11 0 0 0-11 11h-2a13 13 0 0 1 13-13c2.47 0 5.79 1.37 7.53 3.11l2.36 2.36a4.94 4.94 0 0 0 5.24.85l.84-.43a6.1 6.1 0 0 0 3.03-4.87V145h-35.02a8.08 8.08 0 0 1-6.66-4.13l-.43-.84a6.91 6.91 0 0 1 1.22-7.56l2.36-2.36A10.06 10.06 0 0 0 107 124a11 11 0 0 0-22 0c0 1.94 1.16 4.75 2.53 6.11l2.36 2.36a6.93 6.93 0 0 1 1.22 7.56l-.43.84a8.08 8.08 0 0 1-6.66 4.13H49v35.02a6.1 6.1 0 0 0 3.03 4.87l.84.43c1.58.79 4 .4 5.24-.85l2.36-2.36a12.04 12.04 0 0 1 7.51-3.11A13 13 0 0 1 81 192h-2a11 11 0 0 0-11-11c-1.94 0-4.75 1.16-6.11 2.53l-2.36 2.36a6.93 6.93 0 0 1-7.56 1.22l-.84-.43a8.08 8.08 0 0 1-4.13-6.66V145H11.98a6.1 6.1 0 0 0-4.87 3.03l-.43.84c-.79 1.58-.4 4 .85 5.24l2.36 2.36a12.04 12.04 0 0 1 3.11 7.51A13 13 0 0 1 0 177v-2a11 11 0 0 0 11-11c0-1.94-1.16-4.75-2.53-6.11l-2.36-2.36a6.93 6.93 0 0 1-1.22-7.56l.43-.84a8.08 8.08 0 0 1 6.66-4.13H47v-35.02a6.1 6.1 0 0 0-3.03-4.87l-.84-.43c-1.59-.8-4-.4-5.24.85l-2.36 2.36A12 12 0 0 1 28 109a13 13 0 1 1 0-26c2.47 0 5.79 1.37 7.53 3.11l2.36 2.36a4.94 4.94 0 0 0 5.24.85l.84-.43A6.1 6.1 0 0 0 47 84.02V49H11.98a8.08 8.08 0 0 1-6.66-4.13l-.43-.84a6.91 6.91 0 0 1 1.22-7.56l2.36-2.36A10.06 10.06 0 0 0 11 28 11 11 0 0 0 0 17v-2a13 13 0 0 1 13 13c0 2.47-1.37 5.79-3.11 7.53l-2.36 2.36a4.94 4.94 0 0 0-.85 5.24l.43.84A6.1 6.1 0 0 0 11.98 47H47V11.98a8.08 8.08 0 0 1 4.13-6.66l.84-.43a6.91 6.91 0 0 1 7.56 1.22l2.36 2.36A10.06 10.06 0 0 0 68 11 11 11 0 0 0 79 0h2a13 13 0 0 1-13 13 12 12 0 0 1-7.53-3.11l-2.36-2.36a4.93 4.93 0 0 0-5.24-.85l-.84.43A6.1 6.1 0 0 0 49 11.98V47h35.02a8.08 8.08 0 0 1 6.66 4.13l.43.84a6.91 6.91 0 0 1-1.22 7.56l-2.36 2.36A10.06 10.06 0 0 0 85 68a11 11 0 0 0 22 0c0-1.94-1.16-4.75-2.53-6.11l-2.36-2.36a6.93 6.93 0 0 1-1.22-7.56l.43-.84a8.08 8.08 0 0 1 6.66-4.13H143V11.98a6.1 6.1 0 0 0-3.03-4.87l-.84-.43c-1.59-.8-4-.4-5.24.85l-2.36 2.36A12 12 0 0 1 124 13a13 13 0 0 1-13-13h2a11 11 0 0 0 11 11c1.94 0 4.75-1.16 6.11-2.53l2.36-2.36a6.93 6.93 0 0 1 7.56-1.22l.84.43a8.08 8.08 0 0 1 4.13 6.66V47h35.02a6.1 6.1 0 0 0 4.87-3.03l.43-.84c.8-1.59.4-4-.85-5.24l-2.36-2.36A12 12 0 0 1 179 28a13 13 0 0 1 13-13zM84.02 143a6.1 6.1 0 0 0 4.87-3.03l.43-.84c.8-1.59.4-4-.85-5.24l-2.36-2.36A12 12 0 0 1 83 124a13 13 0 1 1 26 0c0 2.47-1.37 5.79-3.11 7.53l-2.36 2.36a4.94 4.94 0 0 0-.85 5.24l.43.84a6.1 6.1 0 0 0 4.87 3.03H143v-35.02a8.08 8.08 0 0 1 4.13-6.66l.84-.43a6.91 6.91 0 0 1 7.56 1.22l2.36 2.36A10.06 10.06 0 0 0 164 107a11 11 0 0 0 0-22c-1.94 0-4.75 1.16-6.11 2.53l-2.36 2.36a6.93 6.93 0 0 1-7.56 1.22l-.84-.43a8.08 8.08 0 0 1-4.13-6.66V49h-35.02a6.1 6.1 0 0 0-4.87 3.03l-.43.84c-.79 1.58-.4 4 .85 5.24l2.36 2.36a12.04 12.04 0 0 1 3.11 7.51A13 13 0 1 1 83 68a12 12 0 0 1 3.11-7.53l2.36-2.36a4.93 4.93 0 0 0 .85-5.24l-.43-.84A6.1 6.1 0 0 0 84.02 49H49v35.02a8.08 8.08 0 0 1-4.13 6.66l-.84.43a6.91 6.91 0 0 1-7.56-1.22l-2.36-2.36A10.06 10.06 0 0 0 28 85a11 11 0 0 0 0 22c1.94 0 4.75-1.16 6.11-2.53l2.36-2.36a6.93 6.93 0 0 1 7.56-1.22l.84.43a8.08 8.08 0 0 1 4.13 6.66V143h35.02z'%3E%3C/path%3E%3C/svg%3E");
+  
+ 
+}
+
+.book-title {
+   font-family: "Satoshi-Bold", sans-serif;
+   font-size: 2.5rem;
+   color: #fff;
+}
+
+
+
+.book-btn {
+   font-family: "Wotfard", sans-serif;
+   padding: 0.5rem 1rem;
+   border-radius: 0.25rem;
+   background-color: #334bff;
+   color: #fff;
+   font-size: 1.5rem;
+   font-weight: 600;
+   text-transform: uppercase;
+   transition: all 0.3s ease;
+   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.4);
+ }
+ 
+ .book-btn:hover {
+   opacity: 0.8;
+ }
+
+.book-btn:disabled {
+   opacity: 0.7;
+   cursor: not-allowed;
+}
+
+/* Success Modal Styles */
+.success-modal-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 1000;
+   animation: fadeIn 0.3s ease-in-out;
+}
+
+.success-modal {
+   background-color: white;
+   border-radius: 12px;
+   padding: 30px;
+   width: 90%;
+   max-width: 400px;
+   text-align: center;
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+   animation: slideIn 0.4s ease-out;
+   position: relative;
+}
+
+.success-icon {
+   margin: 0 auto 20px;
+   animation: scaleIn 0.5s ease-out;
+}
+
+.success-modal h3 {
+   font-family: "Satoshi-Bold", sans-serif;
+   font-size: 24px;
+   color: #333;
+   margin-bottom: 15px;
+}
+
+.success-modal p {
+   font-family: "Wotfard", sans-serif;
+   font-size: 16px;
+   color: #666;
+   line-height: 1.5;
+   margin-bottom: 25px;
+}
+
+.modal-close-btn {
+   font-family: "Wotfard", sans-serif;
+   background-color: #334bff;
+   color: white;
+   border: none;
+   border-radius: 6px;
+   padding: 12px 24px;
+   font-size: 16px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: all 0.2s ease;
+   box-shadow: 0 4px 8px rgba(51, 75, 255, 0.3);
+}
+
+.modal-close-btn:hover {
+   background-color: #2a3ecc;
+   transform: translateY(-2px);
+   box-shadow: 0 6px 12px rgba(51, 75, 255, 0.4);
+}
+
+.modal-close-btn:active {
+   transform: translateY(0);
+   box-shadow: 0 2px 4px rgba(51, 75, 255, 0.3);
+}
+
+
+
+/* Form Error Message Styles */
+.form-error-message {
+   background-color: #FFF5F5;
+   border: 2px solid #FF4B4B;
+   border-radius: 8px;
+   padding: 18px 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   animation: fadeIn 0.3s ease-out;
+   width: 100%;
+   order: 3;
+   flex-basis: 100%;
+   box-shadow: 0 6px 12px rgba(255, 75, 75, 0.2);
+}
+
+.form-error-message .error-icon {
+   margin-right: 15px;
+   flex-shrink: 0;
+   transform: scale(1.2);
+}
+
+.form-error-message p {
+   font-family: "Wotfard", sans-serif;
+   font-size: 1.2rem;
+   font-weight: 500;
+   color: #333;
+   margin: 0;
+   line-height: 1.4;
+   text-align: center;
+}
+
+@keyframes fadeOut {
+   from { opacity: 1; }
+   to { opacity: 0; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}
+
+@keyframes slideIn {
+   from { transform: translateY(-30px); opacity: 0; }
+   to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+   0% { transform: scale(0.8); opacity: 0; }
+   50% { transform: scale(1.1); }
+   100% { transform: scale(1); opacity: 1; }
+}

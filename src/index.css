@@ -1,0 +1,134 @@
+/* FONTS */
+
+@font-face {
+  font-family: 'Satoshi-Regular';
+  src: url('./assets/Fonts/Satoshi-Regular.woff2') format('woff2'),
+       url('./assets/Fonts/Satoshi-Regular.woff') format('woff'),
+       url('./assets/Fonts/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Satoshi-Medium';
+  src: url('./assets/Fonts/Satoshi-Medium.woff') format('woff2'),
+       url('./assets/Fonts/Satoshi-Medium.woff') format('woff'),
+       url('./assets/Fonts/Satoshi-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi-Bold';
+  src: url('./assets/Fonts/Satoshi-Bold.woff2') format('woff2'),
+       url('./assets/Fonts/Satoshi-Bold.woff') format('woff'),
+       url('./assets/Fonts/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi-Black';
+  src: url('./assets/Fonts/Satoshi-Black.woff2') format('woff2'),
+       url('./assets/Fonts/Satoshi-Black.woff') format('woff'),
+       url('./assets/Fonts/Satoshi-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Wotfard';
+  src: url('./assets/Fonts/wotfard-regular-webfont.ttf') format('woff2'),
+       url('./assets/Fonts/wotfard-regular-webfont.woff2') format('woff');
+      
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+
+  background-color: rgb(255, 255, 255);
+ 
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+padding: 0 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+}
+
+

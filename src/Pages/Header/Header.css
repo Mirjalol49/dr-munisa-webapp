@@ -1,0 +1,41 @@
+.header {
+ padding-top: 20px;
+ 
+ 
+  --color: rgba(114, 114, 114, 0.3);
+  background-color: #191a1a;
+  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+  background-size: 55px 55px;
+ 
+}
+
+.header-wrapper {
+  position: fixed;
+  top: 15px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1168px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+background-color: #fff;
+
+  padding: 8px 20px;
+ 
+  border-radius: 15px;
+}
+
+.header-nav {
+  font-family: "Wotfard", sans-serif;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+
+}
+

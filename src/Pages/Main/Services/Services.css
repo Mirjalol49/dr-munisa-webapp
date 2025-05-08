@@ -1,0 +1,15 @@
+.service {
+padding-top: 180px;
+padding-bottom: 30px;
+background-color: #334bff;
+}
+
+.service-wrapper {
+    margin-top: 3rem;
+}
+.service-title {
+    font-family: "Satoshi-Black";
+    font-size: 2.5rem;
+    color: #fff;
+   
+}
