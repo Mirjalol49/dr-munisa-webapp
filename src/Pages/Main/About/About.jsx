@@ -2,6 +2,7 @@ import React from 'react'
 import Munisa from "../../../assets/Images/munisa1.png"
 import Question from "../../../assets/Images/question-mobile.svg"
 import "./About.css"
+// Fixed build error by removing framer-motion/client import
 const About = () => {
   return (
     <section className='about-section'>
