@@ -2,7 +2,6 @@ import React from 'react'
 import Munisa from "../../../assets/Images/munisa1.png"
 import Question from "../../../assets/Images/question-mobile.svg"
 import "./About.css"
-import { audio } from 'framer-motion/client'
 const About = () => {
   return (
     <section className='about-section'>
