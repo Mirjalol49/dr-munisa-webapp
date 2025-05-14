@@ -1,0 +1,49 @@
+.about-section {
+    padding-top: 180px;
+    padding-bottom: 600px;
+    background-color: #0a0f30;
+    color: #fff;
+
+}
+
+.about-wrapper{
+ display: flex;
+}
+
+.about-img-wrapper {
+   position: relative;
+  
+
+}
+
+.about-img-wrapper >svg {
+
+    position: absolute;
+    top: -15px;
+    left: -90px;
+  
+   
+}
+
+.about-img {
+    position: relative;
+    z-index: 1;
+}
+
+.about-decription {
+
+    font-family: "Wotfard";
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin-bottom: 10px;
+}
+
+.about-question {
+    position: relative;
+}
+
+.about-dots{
+    position: absolute;
+    top: -200px;
+    right: 200px;
+}

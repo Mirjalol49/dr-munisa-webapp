@@ -33,7 +33,7 @@
   
   .formField input:focus + span,
   .formField input:valid + span {
-    transform: translateY(-40px) translateX(-5px) scale(0.95);
+    transform: translateY(-43px) translateX(-5px) scale(0.95);
     color: #000000; /* on focus or valid, turn black */
     transition: 0.3s ease-in-out;
   }
