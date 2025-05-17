@@ -15,7 +15,8 @@ const Header = () => {
           <a href="/#">Xizmatlar</a>
           <a href="/#">Natijalar</a>
           <a href="/#">Blog</a>
-        <Button text="Bog'lanish" link="/#" />
+       
+        <a href="/#" className='header-btn'>BOG'LANISH</a>
          
         </nav>
 

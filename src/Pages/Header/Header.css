@@ -39,3 +39,31 @@ background-color: #fff;
 
 }
 
+.header-btn {
+  --bg: #334bff;
+  --hover-bg: #fff;
+  --hover-text: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 2px solid #0f0d0e;
+  border-radius: 25px;
+  padding: 10px 15px;
+  background: var(--bg);
+  transition: 0.2s;
+  font-family: "Satoshi-Black", sans-serif;
+  font-size: 1rem;
+  
+}
+
+.header-btn:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem #0f0d0e;;
+}
+
+.header-btn:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+

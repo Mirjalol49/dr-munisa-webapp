@@ -65,8 +65,9 @@ line-height: 1.2;
    border: 3px solid #000;
    display: flex;
    flex-wrap: wrap;
-   align-items: center;
+  
    justify-content: space-between;
+   align-items: center;
    padding: 1.5rem 1rem;
    border-radius: 15px;
    background-color: #ffffff;
@@ -83,27 +84,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 
 
-.book-btn {
-   font-family: "Wotfard", sans-serif;
-   padding: 0.5rem 1rem;
-   border-radius: 0.25rem;
-   background-color: #334bff;
-   color: #fff;
-   font-size: 1.5rem;
-   font-weight: 600;
-   text-transform: uppercase;
-   transition: all 0.3s ease;
-   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.4);
- }
- 
- .book-btn:hover {
-   opacity: 0.8;
- }
 
-.book-btn:disabled {
-   opacity: 0.7;
-   cursor: not-allowed;
-}
 
 /* Success Modal Styles */
 .success-modal-overlay {
@@ -234,3 +215,32 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
    50% { transform: scale(1.1); }
    100% { transform: scale(1); opacity: 1; }
 }
+
+.hero-btn {
+   --bg: #334bff;
+   --hover-bg: #fff;
+   --hover-text: #000;
+   color: #fff;
+   cursor: pointer;
+   border: 2px solid #0f0d0e;
+   border-radius: 25px;
+   padding: 15px 25px;
+   background: var(--bg);
+   transition: 0.2s;
+   font-family: "Satoshi-Black", sans-serif;
+   font-size: 1.2rem;
+   
+  
+ }
+ 
+ .hero-btn:hover {
+   color: var(--hover-text);
+   transform: translate(-0.25rem, -0.25rem);
+   background: var(--hover-bg);
+   box-shadow: 0.25rem 0.25rem #0f0d0e;;
+ }
+ 
+ .hero-btn:active {
+   transform: translate(0);
+   box-shadow: none;
+ }

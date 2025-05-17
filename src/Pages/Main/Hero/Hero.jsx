@@ -192,7 +192,7 @@ natijalarni ta'minlaydi, ishonchingizni qayta tiklaydi.</p>
               </div>
             )}
             
-            <a href='javascript:void(0)' className='book-btn' onClick={sendToTelegram} disabled={isLoading}>
+            <a href='javascript:void(0)' className='hero-btn' onClick={sendToTelegram} disabled={isLoading}>
               {isLoading ? 'YUBORILMOQDA...' : 'YUBORISH'}
             </a>
 
