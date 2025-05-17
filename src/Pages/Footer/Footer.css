@@ -1,0 +1,73 @@
+.footer {
+  padding: 40px 0;
+  background-color: #0a0f30;
+  
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logo-container {
+  display: inline-block;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.footer-logo p {
+  font-family: "Wotfard", sans-serif;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.telegram-link {
+  font-family: "Wotfard", sans-serif;
+  color: #fcba29;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.telegram-link:hover {
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  font-family: "Wotfard", sans-serif;
+  font-size: 1.1rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .footer-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-logo {
+    align-items: center;
+  }
+}
