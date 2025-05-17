@@ -132,7 +132,7 @@ const Hero = () => {
   }
   
   return (
-    <section className='hero'>
+    <section id="hero" className='hero-section'>
 
       
       {showModal && (
@@ -158,24 +158,24 @@ const Hero = () => {
    <div className="container">
     <div className="hero-wrapper">
       <div className="hero-content-wrapper">
-        <img className='hero-invert' src={HeroInvert} alt="heroinvert" width={100} height={"auto"}/>
-        <h1 className='hero-title'>Sochlaringiz To'kiliyaptimi?</h1>
-    <p className='hero-text'>Biz xavfsiz va samarali, tibbiy jihatdan tasdiqlangan soch tiklash
+        <img className='hero-invert reveal reveal-delay-1' src={HeroInvert} alt="heroinvert" width={100} height={"auto"}/>
+        <h1 className='hero-title reveal reveal-delay-2'>Sochlaringiz To'kiliyaptimi?</h1>
+    <p className='hero-text reveal reveal-delay-3'>Biz xavfsiz va samarali, tibbiy jihatdan tasdiqlangan soch tiklash
 muolajalarini taklif qilamiz. Ular tabiiy ko'rinish va uzoq muddatli
 natijalarni ta'minlaydi, ishonchingizni qayta tiklaydi.</p>
         
       </div>
-      <img src={HeroImg} alt="doctor" width={520} height={"auto"} />
+      <img src={HeroImg} alt="doctor" width={520} height={"auto"} className="reveal reveal-delay-4" />
     </div>
 
-   <div className='book-content'>
-    <h2 className='book-title'>Qabulga yozilish!</h2>
-        <div className="book-wrapper">
-            <div className="formField">
+   <div className='book-content reveal reveal-slide-up'>
+    <h2 className='book-title reveal reveal-delay-1'>Qabulga yozilish!</h2>
+        <div className="book-wrapper reveal reveal-delay-2">
+            <div className="formField reveal reveal-delay-3">
               <input required type="text" value={name} onChange={handleNameChange} />
               <span>Ismingiz</span>
             </div>
-            <div className="formField">
+            <div className="formField reveal reveal-delay-4">
               <input 
                 required 
                 type="text" 

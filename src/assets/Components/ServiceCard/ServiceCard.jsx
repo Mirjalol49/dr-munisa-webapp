@@ -3,7 +3,7 @@ import "./ServiceCard.css"
 import Up from "../../Images/up.svg"
 const ServiceCard = ({img, title, text}) => {
   return (
-    <div className='card-wrapper'>
+    <div className='card-wrapper reveal reveal-slide-up'>
         <img className="card-img" src={img} width={180} height={"auto"}></img>
       <div className="card-content">
         <div className="card-context-wrapper">

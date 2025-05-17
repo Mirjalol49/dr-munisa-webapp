@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Faq.css"
+import "./Faq.css" // CSS import
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -45,13 +45,13 @@ const Faq = () => {
   return (
     <section className='faq-section'>
       <div className="container">
-        <h2 className='faq-title'>Ko'p Beriladigan Savollar</h2>
+        <h2 className='faq-title reveal reveal-slide-up'>Ko'p Beriladigan Savollar</h2>
         
-        <div className="faq-container">
+        <div className="faq-container reveal reveal-delay-1">
           {faqData.map((faq, index) => (
             <div 
               key={index} 
-              className={`faq-item ${activeIndex === index ? 'active' : ''}`}
+              className={`faq-item reveal reveal-delay-${index + 1} ${activeIndex === index ? 'active' : ''}`}
               onClick={() => toggleFaq(index)}
             >
               <div className="faq-question">

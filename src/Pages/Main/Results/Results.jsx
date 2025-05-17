@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Results.css'
+import './Results.css' // CSS import
 
 // Import images
 // Soch images
@@ -57,11 +57,11 @@ const Results = () => {
   }
 
   return (
-    <section className="results-section">
+    <section id="results" className="results-section">
       <div className="container">
-        <h2 className="results-title">Natijalar</h2>
+        <h2 className="results-title reveal reveal-slide-up">Natijalar</h2>
         
-        <div className="tab-wrapper">
+        <div className="tab-wrapper reveal reveal-delay-1">
           <button 
             className={`tab-item ${activeTab === 'soch' ? 'active' : ''}`}
             onClick={() => handleTabClick('soch')}
@@ -93,11 +93,10 @@ const Results = () => {
           </button>
         </div>
 
-        <div className='images-container'>
-          {tabImages[activeTab].map((image) => (
-            <div className="image-wrapper" key={image.id}>
+        <div className='images-container reveal reveal-delay-2'>
+          {tabImages[activeTab].map((image, index) => (
+            <div className={`image-wrapper reveal reveal-delay-${index + 1}`} key={image.id}>
               <img src={image.src} alt={image.alt} />
-            
             </div>
           ))}
         </div>

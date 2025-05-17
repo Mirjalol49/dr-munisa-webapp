@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// CSS styles
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, onSubmit }) => {
@@ -11,13 +12,24 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
   useEffect(() => {
     if (isOpen) {
       setIsAnimating(true);
+      // Prevent scrolling when modal is open
+      document.body.style.overflow = 'hidden';
     } else {
+      // Re-enable scrolling when modal is closed
+      document.body.style.overflow = 'auto';
       const timer = setTimeout(() => {
         setIsAnimating(false);
       }, 700); // Match this with the CSS transition time (0.6s + 0.1s delay)
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
+  
+  // Cleanup function to ensure scrolling is re-enabled if component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

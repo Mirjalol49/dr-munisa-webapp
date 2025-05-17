@@ -9,9 +9,9 @@ import Dermatolog from "../../../assets/Images/5.jpg"
 
 const Services = () => {
   return (
-    <section className='service'>
+    <section id="services" className='service'>
         <div className="container">
-            <h2 className='service-title'>Bizning Xizmatlar</h2>
+            <h2 className='service-title reveal reveal-slide-up'>Bizning Xizmatlar</h2>
             <div className="service-wrapper">
                <ServiceCard img={Hair} title={"Soch Transplantatsiyasi"} text={"Ilg‘or FUE yoki DHI usullaridan foydalangan holda soch to‘kilishi uchun tabiiy va doimiy yechim."}/>
                <ServiceCard img={Beard} title={"Soqol Transplantatsiyasi"} text={"Ilg‘or, kam invaziv usul bilan soqolingizni zich va chiroyli qiling. Tabiiy o‘sish va uzoq muddatli natijaga kafolat beramiz."}/>

@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../assets/Images/logo.png'
+// CSS styles
 import './Footer.css'
 
 const Footer = () => {
@@ -15,10 +16,10 @@ const Footer = () => {
             <a href="https://t.me/mirjalol_shamsiddinov" className="telegram-link" target="_blank" rel="noopener noreferrer">Developed by @mirjalol_shamsiddinov</a>
           </div>
           <div className="footer-links">
-            <a href="/#">Asosiy</a>
-            <a href="/#">Xizmatlar</a>
-            <a href="/#">Natijalar</a>
-            <a href="/#">Blog</a>
+            <a href="#hero">Asosiy</a>
+            <a href="#services">Xizmatlar</a>
+            <a href="#results">Natijalar</a>
+            <a href="#about">Haqida</a>
           </div>
         </div>
       </div>

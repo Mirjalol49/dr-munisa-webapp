@@ -78,15 +78,15 @@ const CTA = () => {
   };
 
   return (
-    <section className='cta-section'>
-        <svg viewBox="0 0 1268 230" fill="none" xmlns="http://www.w3.org/2000/svg" className="sc-c1d6b0c-1 jdvXDt"><path d="M-41 116.5C-41 116.5 -13 144.194 42 137.5C137.685 125.854 159.556 75.8412 254.548 59.6627C341.629 44.8314 384.5 128.213 478.35 93.7384C528 75.4999 530 9.93731 623.309 11C758.5 12.5396 759.5 258.276 913.14 224.497C1014 202.323 1020.5 115.251 1079.59 93.7384C1193.37 52.3182 1273.34 196.541 1386.05 152.44" stroke="#8F7DE8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 10"></path><path d="M-41 104.5C-41 104.5 4.762 131.18 35 127.5C130.685 115.854 159.556 64.8413 254.548 48.6627C341.629 33.8314 399.231 120.232 478.35 81.7384C523.352 59.8436 524.32 2.00029 622.309 2C774.613 1.99955 768.355 260.875 924.14 210.497C999.71 186.06 1005 108.893 1079.59 81.7384C1193.37 40.3183 1272.34 182.541 1385.05 138.44" stroke="#77F6AA" stroke-width="3"></path></svg>
-     <div className="cta-container">
+    <section id="cta" className='cta-section'>
+        <svg viewBox="0 0 1268 230" fill="none" xmlns="http://www.w3.org/2000/svg" className="sc-c1d6b0c-1 jdvXDt reveal reveal-delay-1"><path d="M-41 116.5C-41 116.5 -13 144.194 42 137.5C137.685 125.854 159.556 75.8412 254.548 59.6627C341.629 44.8314 384.5 128.213 478.35 93.7384C528 75.4999 530 9.93731 623.309 11C758.5 12.5396 759.5 258.276 913.14 224.497C1014 202.323 1020.5 115.251 1079.59 93.7384C1193.37 52.3182 1273.34 196.541 1386.05 152.44" stroke="#8F7DE8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 10"></path><path d="M-41 104.5C-41 104.5 4.762 131.18 35 127.5C130.685 115.854 159.556 64.8413 254.548 48.6627C341.629 33.8314 399.231 120.232 478.35 81.7384C523.352 59.8436 524.32 2.00029 622.309 2C774.613 1.99955 768.355 260.875 924.14 210.497C999.71 186.06 1005 108.893 1079.59 81.7384C1193.37 40.3183 1272.34 182.541 1385.05 138.44" stroke="#77F6AA" stroke-width="3"></path></svg>
+     <div className="cta-container reveal">
     
         <div className="cta-wrapper">
             <div className="cta-text">
-<h2 className='cta-title'>Tabiiy ko'rinishdagi soch bilan o'zingizga bo'lgan ishonchni qayta tiklang</h2>
-<button className='cta-btn' onClick={handleOpenModal}>Bepul Kansultatsiya Olish</button></div>
-<div className="cta-img-wrapper">
+<h2 className='cta-title reveal reveal-slide-up reveal-delay-2'>Tabiiy ko'rinishdagi soch bilan o'zingizga bo'lgan ishonchni qayta tiklang</h2>
+<button className='cta-btn reveal reveal-slide-up reveal-delay-3' onClick={handleOpenModal}>Bepul Kansultatsiya Olish</button></div>
+<div className="cta-img-wrapper reveal reveal-slide-right reveal-delay-4">
 <img className='cta-img' src={Josh} alt="josh" width={280} height={"auto"}/>
 </div>
         </div>
