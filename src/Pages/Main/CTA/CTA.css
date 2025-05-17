@@ -1,0 +1,69 @@
+.cta-section {
+    padding-top: 50px;
+    padding-bottom: 600px;
+    background-color: #0a0f30;
+    
+}
+
+.cta-wrapper {
+    max-width: 1000px;
+    height: auto;
+    background-color: #09a95b;
+   
+    padding: 15px 15px 60px;
+    border-radius: 10px;
+    margin: 50px  auto 0 auto;
+}
+
+.cta-title {
+    font-family: "Satoshi-Black", sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+   color: #0f0d0e;
+    
+}
+
+
+
+/* From Uiverse.io by satyamchaudharydev */ 
+/* inspired form gumroad website */
+.cta-btn {
+    --bg: #fcba29;
+    --hover-bg: #fff;
+    --hover-text: #000;
+    color: #0f0d0e;
+    cursor: pointer;
+    border: 2px solid #0f0d0e;
+    border-radius: 25px;
+    padding: 10px 15px;
+    background: var(--bg);
+    transition: 0.2s;
+    font-family: "Satoshi-Black", sans-serif;
+    font-size: 1.2rem;
+    display: block;
+    margin: 15px 0 0 200px;
+  }
+  
+  .cta-btn:hover {
+    color: var(--hover-text);
+    transform: translate(-0.25rem, -0.25rem);
+    background: var(--hover-bg);
+    box-shadow: 0.25rem 0.25rem #0f0d0e;;
+  }
+  
+  .cta-btn:active {
+    transform: translate(0);
+    box-shadow: none;
+  }
+
+  .cta-img-wrapper {
+    position: relative;
+  }
+
+  .cta-img {
+    position: absolute;
+    top: -175px;
+    right: -10px;
+
+  }
+  
