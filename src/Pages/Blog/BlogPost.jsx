@@ -101,6 +101,29 @@ const BlogPost = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const blogContentRef = useRef(null);
   const { showLoading, hideLoading } = useLoading();
+  const [shareUrl, setShareUrl] = useState('');
+  
+  // Set share URL when component mounts
+  useEffect(() => {
+    // Get the current URL for sharing
+    const currentUrl = window.location.href;
+    setShareUrl(currentUrl);
+  }, [postId]);
+  
+  // Share to Telegram function
+  const shareToTelegram = () => {
+    if (!post) return;
+    
+    // Format post title and URL for sharing
+    const title = encodeURIComponent(post.title);
+    const url = encodeURIComponent(shareUrl);
+    
+    // Create telegram share link
+    const telegramShareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
+    
+    // Open in new window
+    window.open(telegramShareUrl, '_blank', 'noopener,noreferrer');
+  };
   
   // Show loading spinner only when content is actually loading
   useEffect(() => {
@@ -257,6 +280,18 @@ const BlogPost = () => {
   return (
     <>
       <div className="blog-post-page">
+        {/* Share button positioned absolutely */}
+        <button className="share-button-large" onClick={shareToTelegram}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z" stroke="#0a0f30" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" stroke="#0a0f30" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z" stroke="#0a0f30" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M8.59 13.51L15.42 17.49" stroke="#0a0f30" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M15.41 6.51L8.59 10.49" stroke="#0a0f30" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Share
+        </button>
+        
         <div className="blog-post-header">
           <div className="progress-container">
             <div 
@@ -265,22 +300,14 @@ const BlogPost = () => {
             ></div>
           </div>
           <div className="container">
-            <Link to="/blog" className="back-button">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              Back
-            </Link>
-            
-            <div className="share-button">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M8.59 13.51L15.42 17.49" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M15.41 6.51L8.59 10.49" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <div className="header-controls">
+              <Link to="/blog" className="back-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Back
+              </Link>
             </div>
           </div>
         </div>

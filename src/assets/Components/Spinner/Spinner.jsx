@@ -1,22 +1,32 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useLoading } from '../../../context/useLoading';
 import './Spinner.css';
 
 // Optimize with React.memo to prevent unnecessary re-renders
-const Spinner = memo(({ isLoading: propIsLoading }) => {
+const Spinner = memo(() => {
   // Get loading state from context
-  const { isLoading: contextIsLoading } = useLoading();
+  const { isLoading } = useLoading();
+  const [visible, setVisible] = useState(false);
   
-  // Use either the prop or context loading state
-  const isLoading = propIsLoading !== undefined ? propIsLoading : contextIsLoading;
+  useEffect(() => {
+    // When isLoading changes, update visibility with a slight delay to ensure smooth transitions
+    if (isLoading) {
+      // Show immediately when loading starts
+      setVisible(true);
+    } else if (!isLoading && visible) {
+      // Add a small delay before hiding to ensure smooth transition
+      const timer = setTimeout(() => {
+        setVisible(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, visible]);
   
-  // Only render if visible to improve performance
-  if (!isLoading) return null;
-  
+  // Always render, but control visibility with CSS classes
   return (
     <>
-      <div className="spinner-overlay visible"></div>
-      <div className="spinner visible"></div>
+      <div className={`spinner-overlay ${visible ? 'visible' : ''}`}></div>
+      <div className={`spinner ${visible ? 'visible' : ''}`}></div>
     </>
   );
 });

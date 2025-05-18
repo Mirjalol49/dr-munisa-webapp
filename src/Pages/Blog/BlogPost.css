@@ -38,8 +38,17 @@
 
 .blog-post-header .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-controls {
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
 .back-button {
@@ -56,20 +65,60 @@
   transform: translateX(-5px);
 }
 
-.share-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+.share-button-large {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  background-color: #ffffff;
+  color: #0a0f30;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-size: 16px;
+  font-family: 'Satoshi-Medium', sans-serif;
 }
 
-.share-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.share-button-large:hover {
+  background-color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.share-button img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.share-tooltip {
+  position: absolute;
+  background-color: #ffffff;
+  color: #0a0f30;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.share-button:hover .share-tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 .blog-post-content-wrapper {

@@ -8,13 +8,17 @@ export const LoadingProvider = ({ children }) => {
   const hideTimerRef = useRef(null);
   const loadingCountRef = useRef(0); // Counter to track nested loading requests
   const lastLoadingTime = useRef(0);
-  const minLoadingTime = 500; // Increased to 500ms to prevent flickering
-  const minDisplayTime = 1000; // Increased minimum time to show the spinner once visible
+  const minLoadingTime = 300; // Reduced to 300ms for better responsiveness
+  const minDisplayTime = 600; // Reduced to 600ms for better user experience
   const stableTimeRef = useRef(null); // Timer to stabilize loading state
+  const isMountedRef = useRef(true); // Track component mount state
 
   // Clear all timers on unmount
   useEffect(() => {
+    isMountedRef.current = true;
+    
     return () => {
+      isMountedRef.current = false;
       if (loadingTimerRef.current) clearTimeout(loadingTimerRef.current);
       if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
       if (stableTimeRef.current) clearTimeout(stableTimeRef.current);
@@ -37,9 +41,11 @@ export const LoadingProvider = ({ children }) => {
     
     // If we recently showed the spinner, show it immediately without delay
     const now = Date.now();
-    if (now - lastLoadingTime.current < 2000) {
-      setIsLoading(true);
-      lastLoadingTime.current = now;
+    if (now - lastLoadingTime.current < 1000) {
+      if (isMountedRef.current) {
+        setIsLoading(true);
+        lastLoadingTime.current = now;
+      }
       return;
     }
     
@@ -50,8 +56,8 @@ export const LoadingProvider = ({ children }) => {
     
     // Set a timer to show the spinner only if loading takes longer than minLoadingTime
     loadingTimerRef.current = setTimeout(() => {
-      // Only show if we still have pending loading requests
-      if (loadingCountRef.current > 0) {
+      // Only show if we still have pending loading requests and component is mounted
+      if (loadingCountRef.current > 0 && isMountedRef.current) {
         setIsLoading(true);
         lastLoadingTime.current = Date.now();
       }
@@ -82,18 +88,18 @@ export const LoadingProvider = ({ children }) => {
       const remainingTime = Math.max(0, minDisplayTime - timeVisible);
       
       hideTimerRef.current = setTimeout(() => {
-        // Only hide if we have no pending loading requests
-        if (loadingCountRef.current === 0) {
+        // Only hide if we have no pending loading requests and component is mounted
+        if (loadingCountRef.current === 0 && isMountedRef.current) {
           setIsLoading(false);
           
           // Add a stabilization period where we ignore new loading requests
           stableTimeRef.current = setTimeout(() => {
             stableTimeRef.current = null;
-          }, 300);
+          }, 200); // Reduced from 300ms for better responsiveness
         }
         hideTimerRef.current = null;
       }, remainingTime);
-    } else if (loadingCountRef.current === 0) {
+    } else if (loadingCountRef.current === 0 && isMountedRef.current) {
       // If spinner is not visible and no pending requests, ensure it stays hidden
       setIsLoading(false);
     }
