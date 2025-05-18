@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/Images/logo.png'
 import Button from '../../assets/Components/Btn/Button'
 import './Header.css'
@@ -14,9 +15,9 @@ const Header = () => {
           <a href="#hero">Asosiy</a>
           <a href="#services">Xizmatlar</a>
           <a href="#results">Natijalar</a>
-          <a href="#about">Blog</a>
+          <Link to="/blog" style={{color: 'inherit', textDecoration: 'none'}}>Blog</Link>
        
-        <a href="#cta" className='header-btn'>BOG'LANISH</a>
+        <a href="tel:+998949590000" className='header-btn' >BOG'LANISH</a>
          
         </nav>
 

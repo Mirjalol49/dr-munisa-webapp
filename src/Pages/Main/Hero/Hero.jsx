@@ -132,7 +132,7 @@ const Hero = () => {
   }
   
   return (
-    <section id="hero" className='hero-section'>
+    <section id="hero" className='hero-section reveal reveal-slide-up'>
 
       
       {showModal && (
@@ -168,14 +168,14 @@ natijalarni ta'minlaydi, ishonchingizni qayta tiklaydi.</p>
       <img src={HeroImg} alt="doctor" width={520} height={"auto"} className="reveal reveal-delay-4" />
     </div>
 
-   <div className='book-content reveal reveal-slide-up'>
-    <h2 className='book-title reveal reveal-delay-1'>Qabulga yozilish!</h2>
-        <div className="book-wrapper reveal reveal-delay-2">
-            <div className="formField reveal reveal-delay-3">
+   <div className='book-content'>
+    <h2 className='book-title '>Qabulga yozilish!</h2>
+        <div className="book-wrapper">
+            <div className="formField ">
               <input required type="text" value={name} onChange={handleNameChange} />
               <span>Ismingiz</span>
             </div>
-            <div className="formField reveal reveal-delay-4">
+            <div className="formField">
               <input 
                 required 
                 type="text" 

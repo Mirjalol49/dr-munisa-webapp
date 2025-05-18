@@ -84,9 +84,9 @@ const CTA = () => {
     
         <div className="cta-wrapper">
             <div className="cta-text">
-<h2 className='cta-title reveal reveal-slide-up reveal-delay-2'>Tabiiy ko'rinishdagi soch bilan o'zingizga bo'lgan ishonchni qayta tiklang</h2>
-<button className='cta-btn reveal reveal-slide-up reveal-delay-3' onClick={handleOpenModal}>Bepul Kansultatsiya Olish</button></div>
-<div className="cta-img-wrapper reveal reveal-slide-right reveal-delay-4">
+<h2 className='cta-title'>Tabiiy ko'rinishdagi soch bilan o'zingizga bo'lgan ishonchni qayta tiklang</h2>
+<button className='cta-btn' onClick={handleOpenModal}>Bepul Kansultatsiya Olish</button></div>
+<div className="cta-img-wrapper">
 <img className='cta-img' src={Josh} alt="josh" width={280} height={"auto"}/>
 </div>
         </div>

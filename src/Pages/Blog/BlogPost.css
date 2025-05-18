@@ -1,0 +1,171 @@
+/* Blog Post Styles */
+.blog-post-page {
+  background-color: #0a0f30;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Wotfard', sans-serif;
+  padding-bottom: 60px;
+}
+
+.blog-post-header {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-post-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-family: 'Satoshi-Medium', sans-serif;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  transform: translateX(-5px);
+}
+
+.share-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.share-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.blog-post-content-wrapper {
+  padding: 40px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-post-title {
+  font-family: 'Satoshi-Bold', sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.blog-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.blog-post-date {
+  font-family: 'Satoshi-Medium', sans-serif;
+}
+
+.blog-post-category {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: 'Satoshi-Medium', sans-serif;
+  margin-left: auto;
+}
+
+.blog-post-content {
+  line-height: 1.8;
+  font-size: 20px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.blog-post-content p {
+  margin-bottom: 24px;
+}
+
+.blog-post-content h2 {
+  font-family: 'Satoshi-Bold', sans-serif;
+  font-size: 28px;
+  margin: 40px 0 20px;
+  color: #fff;
+}
+
+.blog-post-content h3 {
+  font-family: 'Satoshi-Medium', sans-serif;
+  font-size: 24px;
+  margin: 30px 0 15px;
+  color: #fff;
+}
+
+/* Contact section at the end of blog posts */
+.blog-post-contact {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.blog-post-contact h3 {
+  font-family: 'Satoshi-Bold', sans-serif;
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.blog-post-contact p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-button {
+  display: inline-block;
+  background-color: #0a0f30;
+  color: white;
+  font-family: 'Satoshi-Bold', sans-serif;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  margin: 10px 0 20px;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(10, 15, 48, 0.2);
+}
+
+.contact-note {
+  font-size: 16px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  margin-top: -10px !important;
+}
+
+/* Fix for the footer */
+.blog-post-page + footer {
+  background-color: #0a0f30;
+  color: white;
+}
