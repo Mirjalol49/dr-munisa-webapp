@@ -1,82 +1,57 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../Footer/Footer'
-import { useLoading } from '../../context/useLoading'
 import './Blog.css'
 import './BlogPost.css'
 
 import blogImage1 from '../../assets/Images/blog1img.avif'
+import blogImage2 from '../../assets/Images/blog2.jpg'
+
+import blogImage3 from '../../assets/Images/josh.png'
 
 const Blog = () => {
   const navigate = useNavigate();
-  const { showLoading, hideLoading } = useLoading();
   
-  // Show loading spinner only when content is actually loading
+  // Optimize image loading
   useEffect(() => {
-    // Only show loading on initial mount, not on re-renders
+    // Only run on initial mount, not on re-renders
     let isMounted = true;
     
-    // Show loading indicator
-    showLoading();
-    
-    // Function to check if images are loaded
-    const checkImagesLoaded = () => {
-      const images = document.querySelectorAll('.blog-image');
-      let loadedImages = 0;
+    // Function to optimize images
+    const optimizeImages = () => {
+      if (!isMounted) return;
       
-      if (images.length === 0 || !isMounted) {
-        // No images to load or component unmounted, hide spinner
-        hideLoading();
+      const images = document.querySelectorAll('.blog-image');
+      
+      if (images.length === 0) {
         return;
       }
       
-      // Check each image
+      // Add loading and decoding attributes to images for better performance
       images.forEach(img => {
-        if (img.complete) {
-          loadedImages++;
-        } else {
-          img.addEventListener('load', () => {
-            loadedImages++;
-            if (loadedImages === images.length && isMounted) {
-              hideLoading();
-            }
-          }, { once: true });
-          
-          // Handle error case
-          img.addEventListener('error', () => {
-            loadedImages++;
-            if (loadedImages === images.length && isMounted) {
-              hideLoading();
-            }
-          }, { once: true });
+        // Add loading="lazy" for images not in the viewport
+        if (!img.hasAttribute('loading')) {
+          img.setAttribute('loading', 'lazy');
+        }
+        
+        // Add decoding="async" for better performance
+        if (!img.hasAttribute('decoding')) {
+          img.setAttribute('decoding', 'async');
         }
       });
-      
-      // If all images are already loaded
-      if (loadedImages === images.length && isMounted) {
-        hideLoading();
-      }
     };
     
-    // Set a backup timer to hide loading in case the load event doesn't fire
-    const backupTimer = setTimeout(() => {
-      if (isMounted) hideLoading();
-    }, 3000);
-    
-    // Check images after a small delay to ensure DOM is ready
-    const initTimer = setTimeout(checkImagesLoaded, 100);
+    // Run the optimization after a small delay to ensure DOM is ready
+    const initTimer = setTimeout(optimizeImages, 100);
     
     // Cleanup
     return () => {
       isMounted = false;
-      clearTimeout(backupTimer);
       clearTimeout(initTimer);
-      hideLoading();
     };
-  }, [showLoading, hideLoading]);
+  }, []);
   
   const handleBlogCardClick = (postId) => {
-    showLoading(); // Show loading spinner before navigation
     navigate(`/blog/${postId}`);
   };
   
@@ -102,7 +77,7 @@ const Blog = () => {
           <div className="blog-list">
             <div 
               className="blog-card" 
-              onClick={() => handleBlogCardClick('dispenser-water')}
+              onClick={() => handleBlogCardClick('maslahatlar')}
             >
               <img 
                 src={blogImage1}
@@ -122,38 +97,38 @@ const Blog = () => {
             
             <div 
               className="blog-card" 
-              onClick={() => handleBlogCardClick('cooking-gas')}
+              onClick={() => handleBlogCardClick('kochirish-jarayoni')}
             >
               <img 
-                src="https://images.unsplash.com/photo-1603320409990-02d834987237?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                src={blogImage2} 
                 alt="Cooking gas stove" 
                 className="blog-image" 
               />
               <div className="blog-content">
-                <div className="blog-date">MAY 10TH, 2025</div>
-                <h2 className="blog-card-title">5 Signs It's Time to Refill Your Cooking Gas</h2>
+                <div className="blog-date">Aprel 12, 2025</div>
+                <h2 className="blog-card-title">Soch ko'chirib o'tkazish jarayoni og'riqlimi?</h2>
                 <div className="blog-meta">
-                  <span className="blog-read-time">5 Min read</span>
-                  <span className="blog-category">Home</span>
+                  <span className="blog-read-time">5 Minutli o'qish</span>
+                  <span className="blog-category">Soch</span>
                 </div>
               </div>
             </div>
             
             <div 
               className="blog-card" 
-              onClick={() => handleBlogCardClick('wellness-program')}
+              onClick={() => handleBlogCardClick('vaqt-jadvali')}
             >
               <img 
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                src={blogImage3} 
                 alt="Workplace wellness" 
                 className="blog-image" 
               />
               <div className="blog-content">
-                <div className="blog-date">MAY 9TH, 2025</div>
-                <h2 className="blog-card-title">How To Start A Wellness Program At Work</h2>
+                <div className="blog-date">MAY 9, 2025</div>
+                <h2 className="blog-card-title">Soch ko'chirib o'tkazish: oldin va keyingi holat - haqiqiy natijalar qanday bo'ladi</h2>
                 <div className="blog-meta">
-                  <span className="blog-read-time">6 Min read</span>
-                  <span className="blog-category">Workplace</span>
+                  <span className="blog-read-time">6 Minutli o'qish</span>
+                  <span className="blog-category">Soch</span>
                 </div>
               </div>
             </div>

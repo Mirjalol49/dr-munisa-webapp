@@ -36,7 +36,31 @@ background-color: #fff;
   display: flex;
   align-items: center;
   gap: 3rem;
+}
 
+/* Add styles for nav links */
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Active state for links */
+.nav-link.active {
+  color: #334bff;
+  font-weight: 600;
+}
+
+/* Blog header specific styles */
+.blog-header .nav-link {
+  color: #fff;
+}
+
+.blog-header .header-wrapper {
+  background-color: rgba(10, 15, 48, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-btn {

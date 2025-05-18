@@ -56,13 +56,20 @@
   align-items: center;
   gap: 8px;
   color: #fff;
-  font-family: 'Satoshi-Medium', sans-serif;
+  font-family: 'Wotfard', sans-serif;
   font-size: 16px;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .back-button:hover {
-  transform: translateX(-5px);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .share-button-large {

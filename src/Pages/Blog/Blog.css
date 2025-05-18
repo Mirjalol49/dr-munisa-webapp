@@ -118,15 +118,23 @@
 .back-button {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   color: #fff;
+  font-family: 'Wotfard', sans-serif;
+  font-size: 16px;
   text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
   margin-bottom: 30px;
   font-weight: 500;
-  transition: transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .back-button:hover {
-  transform: translateX(-5px);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .blog-post-date {
