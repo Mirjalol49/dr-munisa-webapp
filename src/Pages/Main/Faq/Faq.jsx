@@ -51,7 +51,7 @@ const Faq = () => {
           {faqData.map((faq, index) => (
             <div 
               key={index} 
-              className={`faq-item reveal reveal-delay-${index + 1} ${activeIndex === index ? 'active' : ''}`}
+              className={`faq-item${index + 1} ${activeIndex === index ? 'active' : ''}`}
               onClick={() => toggleFaq(index)}
             >
               <div className="faq-question">

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Footer from '../Footer/Footer'
+import { useLoading } from '../../context/useLoading'
 import './Blog.css'
 import './BlogPost.css'
 
@@ -11,7 +12,7 @@ const blogPosts = {
 `Soch ko‘chirib o‘tkazishdan so‘ng kutilayotgan holatlar: tiklanish, natijalar va foydali maslahatlar'`,
     category: 'Soch',
     date: 'MAY 11, 2025',
-    readTime: '5 Minutli o‘qish',
+    readTime: '3 Minutli o‘qish',
    
     content: `
 <p>Agar siz soch ko‘chirib o‘tkazish haqida o‘ylayotgan bo‘lsangiz, tiklanish jarayonini tushunish muolajaning o‘zi kabi muhimdir. Ushbu postda biz sizga soch transplantatsiyasidan keyin nima sodir bo‘lishi va eng yaxshi natijalarga erishish uchun yangi sochlarni qanday parvarish qilish kerakligi haqida gapirib beramiz.</p>
@@ -97,6 +98,144 @@ Mutaxassislarimizdan biri bilan bepul maslahatlashish uchun bugunoq klinikamizga
 const BlogPost = () => {
   const { postId } = useParams();
   const post = blogPosts[postId];
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const blogContentRef = useRef(null);
+  const { showLoading, hideLoading } = useLoading();
+  
+  // Show loading spinner only when content is actually loading
+  useEffect(() => {
+    // Track component mount state
+    let isMounted = true;
+    
+    // Show loading indicator
+    showLoading();
+    
+    // Function to check if images are loaded
+    const checkImagesLoaded = () => {
+      if (!isMounted || !blogContentRef.current) return;
+      
+      const images = blogContentRef.current.querySelectorAll('img');
+      let loadedImages = 0;
+      
+      if (images.length === 0) {
+        // No images to load, hide spinner
+        hideLoading();
+        return;
+      }
+      
+      // Add loading attribute to images for better browser handling
+      images.forEach(img => {
+        // Add loading="lazy" for images not in the viewport
+        if (!img.hasAttribute('loading')) {
+          img.setAttribute('loading', 'lazy');
+        }
+        
+        // Add decoding="async" for better performance
+        if (!img.hasAttribute('decoding')) {
+          img.setAttribute('decoding', 'async');
+        }
+        
+        if (img.complete) {
+          loadedImages++;
+        } else {
+          img.addEventListener('load', () => {
+            if (!isMounted) return;
+            loadedImages++;
+            if (loadedImages === images.length) {
+              hideLoading();
+            }
+          }, { once: true }); // Use once:true for automatic cleanup
+          
+          // Handle error case
+          img.addEventListener('error', () => {
+            if (!isMounted) return;
+            loadedImages++;
+            if (loadedImages === images.length) {
+              hideLoading();
+            }
+          }, { once: true });
+        }
+      });
+      
+      // If all images are already loaded
+      if (loadedImages === images.length) {
+        hideLoading();
+      }
+    };
+    
+    // Set a backup timer to hide loading in case the load event doesn't fire
+    const backupTimer = setTimeout(() => {
+      if (isMounted) hideLoading();
+    }, 3000); // Reduced from 5000ms to 3000ms for better UX
+    
+    // Check images after a small delay to ensure DOM is ready
+    const initTimer = setTimeout(checkImagesLoaded, 100);
+    
+    // Cleanup
+    return () => {
+      isMounted = false;
+      clearTimeout(backupTimer);
+      clearTimeout(initTimer);
+      hideLoading();
+    };
+  }, [showLoading, hideLoading]);
+  
+  // Calculate scroll progress based on blog content height
+  useEffect(() => {
+    let rafId = null;
+    let isMounted = true;
+    
+    // Use requestAnimationFrame for smoother scroll updates
+    const updateProgress = () => {
+      if (!isMounted || !blogContentRef.current) return;
+      
+      // Get the blog content element dimensions
+      const contentRect = blogContentRef.current.getBoundingClientRect();
+      const contentTop = contentRect.top + window.scrollY;
+      const contentHeight = blogContentRef.current.scrollHeight;
+      const windowHeight = window.innerHeight;
+      
+      // Current scroll position relative to the content
+      const scrollPosition = window.scrollY - contentTop + windowHeight / 2;
+      
+      // Calculate progress percentage based on content height
+      let progress = (scrollPosition / contentHeight) * 100;
+      
+      // Clamp the progress between 0 and 100
+      progress = Math.max(0, Math.min(100, progress));
+      
+      // Only update state if the progress has changed significantly (performance optimization)
+      if (Math.abs(progress - scrollProgress) > 0.5) {
+        setScrollProgress(progress);
+      }
+    };
+    
+    // Throttled scroll handler using requestAnimationFrame
+    const handleScroll = () => {
+      if (rafId) return; // Skip if a frame is already scheduled
+      
+      rafId = requestAnimationFrame(() => {
+        updateProgress();
+        rafId = null;
+      });
+    };
+    
+    // Initial calculation after a short delay to ensure content is rendered
+    const initialTimer = setTimeout(updateProgress, 200);
+    
+    // Add event listeners with passive option for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    
+    // Cleanup
+    return () => {
+      isMounted = false;
+      clearTimeout(initialTimer);
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [scrollProgress]); // Add scrollProgress as dependency for the optimization check
   
   if (!post) {
     return (
@@ -119,6 +258,12 @@ const BlogPost = () => {
     <>
       <div className="blog-post-page">
         <div className="blog-post-header">
+          <div className="progress-container">
+            <div 
+              className="progress-bar" 
+              style={{ width: `${scrollProgress}%` }}
+            ></div>
+          </div>
           <div className="container">
             <Link to="/blog" className="back-button">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,7 +296,11 @@ const BlogPost = () => {
               <div className="blog-post-category">{post.category}</div>
             </div>
             
-            <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.content }}></div>
+            <div 
+              ref={blogContentRef}
+              className="blog-post-content" 
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            ></div>
             
             <div className="blog-post-contact">
               <h3>Bepul konsultatsiya olish uchun</h3>

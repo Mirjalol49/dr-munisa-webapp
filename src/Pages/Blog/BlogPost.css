@@ -8,13 +8,32 @@
 }
 
 .blog-post-header {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(10, 15, 48, 0.95);
   backdrop-filter: blur(10px);
   padding: 20px 0;
   position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+.progress-container {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.progress-bar {
+  height: 3px;
+  background: #3498db;
+  width: 0%;
+  transition: width 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
 }
 
 .blog-post-header .container {

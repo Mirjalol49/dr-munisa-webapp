@@ -14,7 +14,7 @@ const About = () => {
         </div>
 <p className='about-decription reveal reveal-slide-up reveal-delay-3'>Doktor Munisa sochlarni tiklash bo'yicha fidoyi va tajribali mutaxassis bo'lib, sochni ko'chirib o'tkazish usullari bo'yicha yetakchiligi bilan mashhur bo'lgan Turkiyaning eng nufuzli klinikalarida tahsil olgan.</p>
 <p className='about-decription reveal reveal-slide-up reveal-delay-4'>Ilg'or usullarni chuqur tushunish va tabiiy natijalarga sodiqlik bilan u ko'plab mijozlarga o'zlariga bo'lgan ishonchni tiklashga va barqaror o'zgarishlarga erishishga yordam berdi.</p>
-<div className='about-question reveal reveal-scale reveal-delay-5'>
+<div className='about-question'>
 <img className='about-dots' src={Question} alt="question" width={600} height={"auto"} />
 </div>
 
