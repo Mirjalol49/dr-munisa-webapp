@@ -50,5 +50,9 @@
     background-color: #334bff;
     padding: 10px;
     border-radius: 10px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
 }

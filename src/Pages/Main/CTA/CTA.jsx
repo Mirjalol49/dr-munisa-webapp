@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./CTA.css"
 import Josh from "../../../assets/Images/josh.png"
 import Modal from "../Modal/Modal"
+import { useModal } from '../../../context/ModalContext'
 
 const CTA = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   const handleSubmit = async (formData) => {
     console.log('Form submitted:', formData);
@@ -85,7 +78,7 @@ const CTA = () => {
         <div className="cta-wrapper">
             <div className="cta-text">
 <h2 className='cta-title'>Tabiiy ko'rinishdagi soch bilan o'zingizga bo'lgan ishonchni qayta tiklang</h2>
-<button className='cta-btn' onClick={handleOpenModal}>Bepul Kansultatsiya Olish</button></div>
+<button className='cta-btn' onClick={openModal}>Bepul Kansultatsiya Olish</button></div>
 <div className="cta-img-wrapper">
 <img className='cta-img' src={Josh} alt="josh" width={280} height={"auto"}/>
 </div>
@@ -95,7 +88,7 @@ const CTA = () => {
         {/* Modal component */}
         <Modal 
           isOpen={isModalOpen} 
-          onClose={handleCloseModal} 
+          onClose={closeModal} 
           onSubmit={handleSubmit} 
         />
     </section>

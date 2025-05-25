@@ -32,7 +32,44 @@
   font-size: 0.9rem;
 }
 
-.telegram-link {
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Wotfard", sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-link img {
+  display: inline-block;
+}
+
+.social-link.telegram {
+  color: #0088CC;
+}
+
+.social-link.instagram {
+  color: #E1306C;
+}
+
+.social-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.developer-link {
   font-family: "Wotfard", sans-serif;
   color: #fcba29;
   font-size: 0.85rem;
@@ -40,7 +77,7 @@
   transition: color 0.3s ease;
 }
 
-.telegram-link:hover {
+.developer-link:hover {
   color: #fff;
 }
 

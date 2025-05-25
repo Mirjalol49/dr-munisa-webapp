@@ -1,0 +1,188 @@
+.game-character-container {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+  z-index: 1000;
+  max-width: 600px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  transform: translateX(-500px);
+  pointer-events: none; /* Ensure it doesn't block clicks until visible */
+  opacity: 0;
+}
+
+.game-character-container.visible {
+  transform: translateX(20px); /* Slide in to this position */
+  pointer-events: all; /* Re-enable clicks when visible */
+  opacity: 1;
+}
+
+.game-character-container.visible .character-speech-bubble {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.character-image-container {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  z-index: 2;
+  margin-right: -15px;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+}
+
+.character-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  animation: bounce 2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.character-speech-bubble {
+  background-color: white;
+  border-radius: 20px;
+  padding: 25px 30px;
+  margin-left: -20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  min-width: 320px;
+  border: 3px solid #FFE082;
+  background-color: #FFFDE7;
+  transform: scale(0.95);
+  transition: all 0.5s ease;
+  background-image: linear-gradient(to bottom, #FFFDE7, #FFF9C4);
+}
+
+.character-speech-bubble::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  bottom: 30px;
+  width: 28px;
+  height: 28px;
+  background-image: linear-gradient(135deg, #FFFDE7, #FFF9C4);
+  transform: rotate(45deg);
+  z-index: -1;
+  border-left: 3px solid #FFE082;
+  border-bottom: 3px solid #FFE082;
+}
+
+.character-speech-bubble p {
+  margin: 0 0 25px 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+  font-family: 'Satoshi-Bold', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.character-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.character-button {
+  padding: 12px 24px;
+  border: 2px solid #FBC02D;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Wotfard', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.play-button {
+  background-color: #FFEB3B;
+  color: #333;
+  font-weight: 700;
+  border: 2px solid #FBC02D;
+  position: relative;
+  overflow: hidden;
+}
+
+.play-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.play-button:hover::before {
+  left: 100%;
+}
+
+.play-button:hover {
+  background-color: #FFD54F;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dismiss-button {
+  background-color: #f8f8f8;
+  color: #555;
+  border: 2px solid #e0e0e0;
+}
+
+.dismiss-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* Animation for the character */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.character-image {
+  animation: bounce 2s ease infinite;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .game-character-container {
+    bottom: 10px;
+    max-width: 300px;
+  }
+  
+  .game-character-container.visible {
+    left: 10px;
+  }
+  
+  .character-image-container {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .character-speech-bubble {
+    padding: 12px;
+    min-width: 180px;
+  }
+  
+  .character-speech-bubble p {
+    font-size: 14px;
+  }
+  
+  .character-button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

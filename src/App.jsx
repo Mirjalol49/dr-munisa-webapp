@@ -6,6 +6,7 @@ import Footer from './Pages/Footer/Footer'
 import useScrollReveal from './utils/useScrollReveal'
 import './utils/scrollReveal.css'
 import './App.css'
+import { ModalProvider } from './context/ModalContext'
 
 // Lazy load components for better performance
 const Main = lazy(() => import('./Pages/Main/Main'))
@@ -32,31 +33,33 @@ const LazyLoadingWrapper = ({ children }) => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={
-          <Suspense fallback={null}>
-            <LazyLoadingWrapper>
-              <MainLayout />
-            </LazyLoadingWrapper>
-          </Suspense>
-        } />
-        <Route path="/blog" element={
-          <Suspense fallback={null}>
-            <LazyLoadingWrapper>
-              <Blog />
-            </LazyLoadingWrapper>
-          </Suspense>
-        } />
-        <Route path="/blog/:postId" element={
-          <Suspense fallback={null}>
-            <LazyLoadingWrapper>
-              <BlogPost />
-            </LazyLoadingWrapper>
-          </Suspense>
-        } />
-      </Routes>
-    </BrowserRouter>
+    <ModalProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+            <Suspense fallback={null}>
+              <LazyLoadingWrapper>
+                <MainLayout />
+              </LazyLoadingWrapper>
+            </Suspense>
+          } />
+          <Route path="/blog" element={
+            <Suspense fallback={null}>
+              <LazyLoadingWrapper>
+                <Blog />
+              </LazyLoadingWrapper>
+            </Suspense>
+          } />
+          <Route path="/blog/:postId" element={
+            <Suspense fallback={null}>
+              <LazyLoadingWrapper>
+                <BlogPost />
+              </LazyLoadingWrapper>
+            </Suspense>
+          } />
+        </Routes>
+      </BrowserRouter>
+    </ModalProvider>
   )
 }
 

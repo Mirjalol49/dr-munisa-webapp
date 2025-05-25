@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Footer from '../Footer/Footer'
+import GameCharacter from '../../assets/Components/GameCharacter/GameCharacter'
 import './Blog.css'
 import './BlogPost.css'
 
@@ -114,6 +115,7 @@ const BlogPost = () => {
   const { postId } = useParams();
   const post = blogPosts[postId];
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [showGameCharacter, setShowGameCharacter] = useState(false);
   const blogContentRef = useRef(null);
   const [shareUrl, setShareUrl] = useState('');
   
@@ -139,18 +141,26 @@ const BlogPost = () => {
     window.open(telegramShareUrl, '_blank', 'noopener,noreferrer');
   };
   
+  // Handle when user wants to play the game
+  const handlePlayGame = () => {
+    // This will be implemented when you provide the game
+    console.log('Play game clicked');
+    // You can add your game implementation here
+  };
+  
+  // Handle when user dismisses the game character
+  const handleDismissCharacter = () => {
+    setShowGameCharacter(false);
+  };
+  
   // Optimize image loading
   useEffect(() => {
-    // Track component mount state
-    let isMounted = true;
-    
     // Function to optimize images
     const optimizeImages = () => {
-      if (!isMounted || !blogContentRef.current) return;
+      if (!blogContentRef.current) return;
       
       const images = blogContentRef.current.querySelectorAll('img');
       
-      // Add loading attribute to images for better browser handling
       images.forEach(img => {
         // Add loading="lazy" for images not in the viewport
         if (!img.hasAttribute('loading')) {
@@ -161,6 +171,15 @@ const BlogPost = () => {
         if (!img.hasAttribute('decoding')) {
           img.setAttribute('decoding', 'async');
         }
+        
+        if (!img.complete) {
+          img.style.opacity = '0';
+          img.style.transition = 'opacity 0.3s ease';
+          
+          img.onload = () => {
+            img.style.opacity = '1';
+          };
+        }
       });
     };
     
@@ -169,7 +188,6 @@ const BlogPost = () => {
     
     // Cleanup
     return () => {
-      isMounted = false;
       clearTimeout(initTimer);
     };
   }, []);
@@ -177,30 +195,25 @@ const BlogPost = () => {
   // Calculate scroll progress based on blog content height
   useEffect(() => {
     let rafId = null;
-    let isMounted = true;
     
     // Use requestAnimationFrame for smoother scroll updates
     const updateProgress = () => {
-      if (!isMounted || !blogContentRef.current) return;
+      rafId = null;
+      if (!blogContentRef.current) return;
       
-      // Get the blog content element dimensions
-      const contentRect = blogContentRef.current.getBoundingClientRect();
-      const contentTop = contentRect.top + window.scrollY;
-      const contentHeight = blogContentRef.current.scrollHeight;
       const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrollTop = window.scrollY;
       
-      // Current scroll position relative to the content
-      const scrollPosition = window.scrollY - contentTop + windowHeight / 2;
+      // Calculate scroll percentage
+      const scrollPercentage = (scrollTop / documentHeight) * 100;
       
-      // Calculate progress percentage based on content height
-      let progress = (scrollPosition / contentHeight) * 100;
+      // Update scroll progress state
+      setScrollProgress(Math.min(scrollPercentage, 100));
       
-      // Clamp the progress between 0 and 100
-      progress = Math.max(0, Math.min(100, progress));
-      
-      // Only update state if the progress has changed significantly (performance optimization)
-      if (Math.abs(progress - scrollProgress) > 0.5) {
-        setScrollProgress(progress);
+      // Show character when user has scrolled to 85% of the content
+      if (scrollPercentage > 85 && !showGameCharacter) {
+        setShowGameCharacter(true);
       }
     };
     
@@ -214,8 +227,8 @@ const BlogPost = () => {
       });
     };
     
-    // Initial calculation after a short delay to ensure content is rendered
-    const initialTimer = setTimeout(updateProgress, 200);
+    // Initial calculation
+    updateProgress();
     
     // Add event listeners with passive option for better performance
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -223,13 +236,11 @@ const BlogPost = () => {
     
     // Cleanup
     return () => {
-      isMounted = false;
-      clearTimeout(initialTimer);
       if (rafId) cancelAnimationFrame(rafId);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [scrollProgress]); // Add scrollProgress as dependency for the optimization check
+  }, [scrollProgress, showGameCharacter]); // Add showGameCharacter as dependency
   
   if (!post) {
     return (
@@ -309,6 +320,13 @@ const BlogPost = () => {
           </div>
         </div>
       </div>
+      {/* Game character that appears at the end of the blog post */}
+      {showGameCharacter && (
+        <GameCharacter 
+          onPlayGame={handlePlayGame} 
+          onDismiss={handleDismissCharacter} 
+        />
+      )}
       <Footer />
     </>
   );

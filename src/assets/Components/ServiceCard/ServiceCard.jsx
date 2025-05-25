@@ -1,7 +1,10 @@
 import React from 'react'
 import "./ServiceCard.css"
 import Up from "../../Images/up.svg"
+import { useModal } from '../../../context/ModalContext'
 const ServiceCard = ({img, title, text}) => {
+  const { openModal } = useModal();
+  
   return (
     <div className='card-wrapper reveal reveal-slide-up'>
         <img className="card-img" src={img} width={180} height={"auto"}></img>
@@ -10,7 +13,9 @@ const ServiceCard = ({img, title, text}) => {
         <h3 className='card-title'>{title}</h3>
         <p className='card-text'>{text}</p>
         </div>
-        <a className="card-btn" href="#"><img src={Up} alt="up icon" width={50} height={"auto"} /></a>
+        <button className="card-btn" onClick={openModal}>
+          <img src={Up} alt="up icon" width={50} height={"auto"} />
+        </button>
       </div>
     </div>
   )
