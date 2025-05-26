@@ -51,13 +51,13 @@ const GameCharacter = ({ onPlayGame, onDismiss }) => {
         <img src={characterImg} alt="Game Character" className="character-image" />
       </div>
       <div className="character-speech-bubble">
-        <p>Chegirma olish uchun o'yin o'ynaymizmi?</p>
+        <p>Hoziroq Dr Munisa bilan bog'lanib bepul kansultatsiya oling</p>
         <div className="character-buttons">
           <button className="character-button play-button" onClick={handlePlayClick}>
-            O'ynash
+            Bog'lanish
           </button>
           <button className="character-button dismiss-button" onClick={handleDismissClick}>
-            Yo'q, rahmat
+            Keyinroq
           </button>
         </div>
       </div>

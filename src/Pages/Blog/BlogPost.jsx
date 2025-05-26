@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Footer from '../Footer/Footer'
-import GameCharacter from '../../assets/Components/GameCharacter/GameCharacter'
 import './Blog.css'
 import './BlogPost.css'
 
@@ -115,7 +114,6 @@ const BlogPost = () => {
   const { postId } = useParams();
   const post = blogPosts[postId];
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [showGameCharacter, setShowGameCharacter] = useState(false);
   const blogContentRef = useRef(null);
   const [shareUrl, setShareUrl] = useState('');
   
@@ -141,17 +139,7 @@ const BlogPost = () => {
     window.open(telegramShareUrl, '_blank', 'noopener,noreferrer');
   };
   
-  // Handle when user wants to play the game
-  const handlePlayGame = () => {
-    // This will be implemented when you provide the game
-    console.log('Play game clicked');
-    // You can add your game implementation here
-  };
-  
-  // Handle when user dismisses the game character
-  const handleDismissCharacter = () => {
-    setShowGameCharacter(false);
-  };
+
   
   // Optimize image loading
   useEffect(() => {
@@ -210,11 +198,6 @@ const BlogPost = () => {
       
       // Update scroll progress state
       setScrollProgress(Math.min(scrollPercentage, 100));
-      
-      // Show character when user has scrolled to 85% of the content
-      if (scrollPercentage > 85 && !showGameCharacter) {
-        setShowGameCharacter(true);
-      }
     };
     
     // Throttled scroll handler using requestAnimationFrame
@@ -240,7 +223,7 @@ const BlogPost = () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [scrollProgress, showGameCharacter]); // Add showGameCharacter as dependency
+  }, [scrollProgress]);
   
   if (!post) {
     return (
@@ -320,13 +303,6 @@ const BlogPost = () => {
           </div>
         </div>
       </div>
-      {/* Game character that appears at the end of the blog post */}
-      {showGameCharacter && (
-        <GameCharacter 
-          onPlayGame={handlePlayGame} 
-          onDismiss={handleDismissCharacter} 
-        />
-      )}
       <Footer />
     </>
   );

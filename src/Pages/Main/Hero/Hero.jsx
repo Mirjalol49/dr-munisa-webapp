@@ -165,7 +165,7 @@ muolajalarini taklif qilamiz. Ular tabiiy ko'rinish va uzoq muddatli
 natijalarni ta'minlaydi, ishonchingizni qayta tiklaydi.</p>
         
       </div>
-      <img src={HeroImg} alt="doctor" width={520} height={"auto"} className="reveal reveal-delay-4" />
+      <img src={HeroImg} alt="doctor" width={520} height={"auto"} className="hero-img reveal reveal-delay-4" />
     </div>
 
    <div className='book-content'>
