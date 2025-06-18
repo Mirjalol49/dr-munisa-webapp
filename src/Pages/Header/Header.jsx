@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import logo from '../../assets/Images/logo.png'
+import LanguageSwitcher from '../../assets/Components/LanguageSwitcher/LanguageSwitcher'
 import './Header.css'
 const Header = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -107,9 +110,9 @@ const Header = () => {
               {/* Only show these links on main page */}
               {!isBlogPage && (
                 <>
-                  <a href="#hero" className="nav-link" onClick={() => setIsMenuOpen(false)}>Asosiy</a>
-                  <a href="#services" className="nav-link" onClick={() => setIsMenuOpen(false)}>Xizmatlar</a>
-                  <a href="#results" className="nav-link" onClick={() => setIsMenuOpen(false)}>Natijalar</a>
+                  <a href="#hero" className="nav-link" onClick={() => setIsMenuOpen(false)}>{t('header.home')}</a>
+                  <a href="#services" className="nav-link" onClick={() => setIsMenuOpen(false)}>{t('header.services')}</a>
+                  <a href="#results" className="nav-link" onClick={() => setIsMenuOpen(false)}>{t('header.results')}</a>
                 </>
               )}
               
@@ -119,11 +122,14 @@ const Header = () => {
                 className={`nav-link ${location.pathname.includes('/blog') ? 'active' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Blog
+                {t('header.blog')}
               </Link>
             </div>
            
-            <a href="tel:+998949590000" className='header-btn' onClick={() => setIsMenuOpen(false)}>BOG'LANISH</a>
+            <div className="header-actions">
+              <LanguageSwitcher />
+              <a href="tel:+998949590000" className='header-btn' onClick={() => setIsMenuOpen(false)}>{t('header.contact')}</a>
+            </div>
           </nav>
         </div>
       </div>

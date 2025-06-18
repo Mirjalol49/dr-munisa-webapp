@@ -1,65 +1,66 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import ImageLoader from '../../../components/ImageLoader'
 import './Results.css' // CSS import
 
-// Import images
-// Soch images
-import soch1 from '../../../assets/Images/soch1.jpg'
-import soch2 from '../../../assets/Images/soch2.jpg'
-import soch3 from '../../../assets/Images/soch3.jpg'
-import soch4 from '../../../assets/Images/soch4.jpg'
-import soch5 from '../../../assets/Images/soch5.jpg'
-import soch6 from '../../../assets/Images/soch6.jpg'
-
-// Soqol images
-import soqol1 from '../../../assets/Images/soqol1.jpg'
-import soqol2 from '../../../assets/Images/soqol2.jpg'
-import soqol3 from '../../../assets/Images/soqol3.jpg'
-import soqol4 from '../../../assets/Images/soqol4.jpg'
-
-// Qosh images
-import qosh1 from '../../../assets/Images/qosh1.jpg'
-import qosh2 from '../../../assets/Images/qosh2.jpg'
-
-// Import icons
-import hairIcon from '../../../assets/Images/hair-icon.png'
-import beardIcon from '../../../assets/Images/beard-icon.png'
-import eyebrowIcon from '../../../assets/Images/eyebrow-icon.png'
-
 const Results = () => {
+  const { t } = useTranslation();
   // State to track active tab
-  const [activeTab, setActiveTab] = useState('soch')
+  const [activeTab, setActiveTab] = useState('soch');
+  const [displayedImages, setDisplayedImages] = useState([]);
+  const previousTabRef = useRef('soch');
 
-  // Image arrays for each tab
-  const tabImages = {
+  // Image arrays for each tab using useMemo to prevent unnecessary re-renders
+  const tabImages = useMemo(() => ({
     soch: [
-      { id: 1, src: soch1, alt: 'Soch transplantatsiyasi natija 1' },
-      { id: 2, src: soch2, alt: 'Soch transplantatsiyasi natija 2' },
-      { id: 3, src: soch3, alt: 'Soch transplantatsiyasi natija 3' },
-      { id: 4, src: soch4, alt: 'Soch transplantatsiyasi natija 4' },
-      { id: 5, src: soch5, alt: 'Soch transplantatsiyasi natija 5' },
-      { id: 6, src: soch6, alt: 'Soch transplantatsiyasi natija 6' },
+      { id: 1, src: '/images/soch1.jpg', alt: `${t('results.hairAlt')} 1` },
+      { id: 2, src: '/images/soch2.jpg', alt: `${t('results.hairAlt')} 2` },
+      { id: 3, src: '/images/soch3.jpg', alt: `${t('results.hairAlt')} 3` },
+      { id: 4, src: '/images/soch4.jpg', alt: `${t('results.hairAlt')} 4` },
+      { id: 5, src: '/images/soch5.jpg', alt: `${t('results.hairAlt')} 5` },
+      { id: 6, src: '/images/soch6.jpg', alt: `${t('results.hairAlt')} 6` },
     ],
     soqol: [
-      { id: 1, src: soqol1, alt: 'Soqol transplantatsiyasi natija 1' },
-      { id: 2, src: soqol2, alt: 'Soqol transplantatsiyasi natija 2' },
-      { id: 3, src: soqol3, alt: 'Soqol transplantatsiyasi natija 3' },
-      { id: 4, src: soqol4, alt: 'Soqol transplantatsiyasi natija 4' },
+      { id: 1, src: '/images/soqol1.jpg', alt: `${t('results.beardAlt')} 1` },
+      { id: 2, src: '/images/soqol2.jpg', alt: `${t('results.beardAlt')} 2` },
+      { id: 3, src: '/images/soqol3.jpg', alt: `${t('results.beardAlt')} 3` },
+      { id: 4, src: '/images/soqol4.jpg', alt: `${t('results.beardAlt')} 4` },
     ],
     qosh: [
-      { id: 1, src: qosh1, alt: 'Qosh transplantatsiyasi natija 1' },
-      { id: 2, src: qosh2, alt: 'Qosh transplantatsiyasi natija 2' },
+      { id: 1, src: '/images/qosh1.jpg', alt: `${t('results.eyebrowAlt')} 1` },
+      { id: 2, src: '/images/qosh2.jpg', alt: `${t('results.eyebrowAlt')} 2` },
     ],
-  }
+  }), [t]);
+
+  // Set initial images on component mount
+  useEffect(() => {
+    console.log('Initial images:', tabImages.soch);
+    setDisplayedImages(tabImages.soch);
+  }, [tabImages.soch]);
+
+  // Update displayed images when tab changes
+  useEffect(() => {
+    // Get new tab's images
+    const newTabImages = tabImages[activeTab];
+    
+    // Create a copy of the new tab's images
+    let imagesToShow = [...newTabImages];
+    
+    // We no longer add placeholders - we'll just show the actual images
+    
+    setDisplayedImages(imagesToShow);
+    previousTabRef.current = activeTab;
+  }, [activeTab, tabImages]);
 
   // Handle tab click
   const handleTabClick = (tabName) => {
-    setActiveTab(tabName)
+    setActiveTab(tabName);
   }
 
   return (
     <section id="results" className="results-section">
       <div className="container">
-        <h2 className="results-title reveal reveal-slide-up">Natijalar</h2>
+        <h2 className="results-title reveal reveal-slide-up">{t('results.title')}</h2>
         
         <div className="tab-wrapper reveal reveal-delay-1">
           <button 
@@ -67,9 +68,9 @@ const Results = () => {
             onClick={() => handleTabClick('soch')}
           >
             <span className="tab-icon">
-              <img src={hairIcon} alt="Hair icon" />
+              <img src="/images/hair-icon.png" alt="Hair icon" />
             </span>
-            <span className="tab-text">Soch</span>
+            <span className="tab-text">{t('results.hair')}</span>
           </button>
           
           <button 
@@ -77,9 +78,9 @@ const Results = () => {
             onClick={() => handleTabClick('soqol')}
           >
             <span className="tab-icon">
-              <img src={beardIcon} alt="Beard icon" />
+              <img src="/images/beard-icon.png" alt="Beard icon" />
             </span>
-            <span className="tab-text">Soqol</span>
+            <span className="tab-text">{t('results.beard')}</span>
           </button>
           
           <button 
@@ -87,18 +88,27 @@ const Results = () => {
             onClick={() => handleTabClick('qosh')}
           >
             <span className="tab-icon">
-              <img src={eyebrowIcon} alt="Eyebrow icon" />
+              <img src="/images/eyebrow-icon.png" alt="Eyebrow icon" />
             </span>
-            <span className="tab-text">Qosh</span>
+            <span className="tab-text">{t('results.eyebrow')}</span>
           </button>
         </div>
 
-        <div className='images-container reveal reveal-delay-2'>
-          {tabImages[activeTab].map((image, index) => (
-            <div className={`image-wrapper reveal reveal-delay-${index + 1}`} key={image.id}>
-              <img src={image.src} alt={image.alt} />
-            </div>
-          ))}
+        <div className='images-container'>
+          {displayedImages.length > 0 ? (
+            displayedImages.map((image) => (
+              <div className="image-wrapper" key={image.id}>
+                <ImageLoader 
+                  src={image.src} 
+                  alt={image.alt} 
+                  className="result-image"
+                  style={{ width: '100%', height: 'auto', position: 'relative' }}
+                />
+              </div>
+            ))
+          ) : (
+            <div className="no-images-message">{t('results.noImages')}</div>
+          )}
         </div>
       </div>
     </section>

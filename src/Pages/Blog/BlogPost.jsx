@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import Footer from '../Footer/Footer'
 import './Blog.css'
 import './BlogPost.css'
+import SEOHead from '../../components/SEO/SEOHead'
+import { generateBlogPostSchema } from '../../components/SEO/ClinicSchema'
 
-// Sample blog post data
-const blogPosts = {
+// Blog post data will now be managed through i18n translations
+// This object is just for reference and fallback
+const blogPostsDefault = {
   'maslahatlar': {
     title: 
 `Soch ko‘chirib o‘tkazishdan so‘ng kutilayotgan holatlar: tiklanish, natijalar va foydali maslahatlar'`,
@@ -25,7 +29,7 @@ const blogPosts = {
       <h2>3. Sochlarning o‘sish muddati</h2>
       <p>• 3-4 oy: ingichka sochlar paydo bo‘la boshlaydi.</p>
 <p>• 6 oy: sezilarli yaxshilanish va tolalarning qalinlashishi.</p>
-<p>• 12 oy va undan<keyin: To‘liq natijalar ko‘rinadi.</p>
+<p>• 12 oy va undan keyin: To'liq natijalar ko'rinadi.</p>
 <p>Har kimning sochi har xil tezlikda o‘sadi, lekin bir yoshga to‘lganda bemorlarning ko‘pchiligi tabiiy ko‘rinishga ega bo‘lgan to‘liq sochdan bahramand bo‘ladi.</p>
       
       <h2>4. Tez va sog‘lom tiklanish uchun maslahatlar</h2>
@@ -111,11 +115,96 @@ Mutaxassislarimizdan biri bilan bepul maslahatlashish uchun bugunoq klinikamizga
 };
 
 const BlogPost = () => {
+
   const { postId } = useParams();
-  const post = blogPosts[postId];
+  const { t, i18n } = useTranslation();
   const [scrollProgress, setScrollProgress] = useState(0);
   const blogContentRef = useRef(null);
   const [shareUrl, setShareUrl] = useState('');
+  const [blogData, setBlogData] = useState(null);
+  
+  // Direct access to blog post data without using t() function
+  const getDirectBlogPost = useRef((currentLanguage) => {
+    try {
+      // Get the raw translations object for the current language
+      const translations = i18n.getDataByLanguage(currentLanguage);
+      if (!translations) return null;
+      
+      console.log('Current language:', currentLanguage);
+      console.log('Current postId:', postId);
+      
+      // Direct mapping of post IDs across languages
+      // All languages use the same keys for blog posts
+      const postMapping = {
+        'maslahatlar': 'maslahatlar',
+        'kochirish-jarayoni': 'kochirish-jarayoni',
+        'vaqt-jadvali': 'vaqt-jadvali'
+      };
+      
+      const mappedPostId = postMapping[postId] || postId;
+      
+      // Direct access to the translation data
+      const blogPostData = translations.translation?.blogPosts?.[mappedPostId];
+      console.log('Found blog post data:', blogPostData ? 'yes' : 'no');
+      
+      // If we found the blog post in the current language
+      if (blogPostData && blogPostData.content) {
+        return {
+          title: blogPostData.title || '',
+          category: blogPostData.category || '',
+          date: blogPostData.date || '',
+          readTime: blogPostData.readTime || '',
+          content: blogPostData.content || ''
+        };
+      }
+      
+      // If content is missing in the current language, try to find it in other languages
+      if (blogPostData && !blogPostData.content) {
+        console.log('Content missing in current language, checking others');
+        
+        // Try Uzbek (default language) if not already checking it
+        if (currentLanguage !== 'uz') {
+          const uzTranslations = i18n.getDataByLanguage('uz');
+          if (uzTranslations?.translation?.blogPosts?.[mappedPostId]?.content) {
+            const uzBlogPost = uzTranslations.translation.blogPosts[mappedPostId];
+            // Use content from Uzbek but keep metadata from current language
+            return {
+              title: blogPostData.title || uzBlogPost.title || '',
+              category: blogPostData.category || uzBlogPost.category || '',
+              date: blogPostData.date || uzBlogPost.date || '',
+              readTime: blogPostData.readTime || uzBlogPost.readTime || '',
+              content: uzBlogPost.content
+            };
+          }
+        }
+        
+        // If still no content, try English
+        if (currentLanguage !== 'en') {
+          const enTranslations = i18n.getDataByLanguage('en');
+          if (enTranslations?.translation?.blogPosts?.[mappedPostId]?.content) {
+            const enBlogPost = enTranslations.translation.blogPosts[mappedPostId];
+            // Use content from English but keep metadata from current language
+            return {
+              title: blogPostData.title || enBlogPost.title || '',
+              category: blogPostData.category || enBlogPost.category || '',
+              date: blogPostData.date || enBlogPost.date || '',
+              readTime: blogPostData.readTime || enBlogPost.readTime || '',
+              content: enBlogPost.content
+            };
+          }
+        }
+      }
+      
+      // Fallback to default content if nothing found in any language
+      return blogPostsDefault[postId];
+    } catch (error) {
+      console.error('Error getting blog post:', error);
+      return null;
+    }
+  }).current;
+  
+  // We now use the state variable instead of calling the function directly
+  // blogData is set in the useEffect
   
   // Set share URL when component mounts
   useEffect(() => {
@@ -124,15 +213,29 @@ const BlogPost = () => {
     setShareUrl(currentUrl);
   }, [postId]);
   
+  // Update content when language changes
+  useEffect(() => {
+    // Get blog post data directly from translations
+    const post = getDirectBlogPost(i18n.language);
+    setBlogData(post);
+    
+    // Update the HTML content
+    if (blogContentRef.current && post && post.content) {
+      blogContentRef.current.innerHTML = post.content;
+    }
+    
+    // This effect should run whenever language changes
+  }, [i18n.language, postId, getDirectBlogPost]);
+  
   // Share to Telegram function
   const shareToTelegram = () => {
-    if (!post) return;
+    if (!blogData) return;
     
     // Format post title and URL for sharing
-    const title = encodeURIComponent(post.title);
+    const title = encodeURIComponent(blogData.title);
     const url = encodeURIComponent(shareUrl);
     
-    // Create telegram share link
+    // Create Telegram share URL
     const telegramShareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
     
     // Open in new window
@@ -224,26 +327,29 @@ const BlogPost = () => {
       window.removeEventListener('resize', handleScroll);
     };
   }, [scrollProgress]);
-  
-  if (!post) {
-    return (
-      <>
-        <div className="blog-post-page">
-          <div className="container">
-            <Link to="/blog" className="back-button">← Back to Blog</Link>
-            <div className="blog-post-content">
-              <h1>Blog Post Not Found</h1>
-              <p>Sorry, the blog post you're looking for doesn't exist.</p>
-            </div>
-          </div>
-        </div>
-        <Footer />
-      </>
-    );
-  }
-  
+
+  // ...
+
+  // Create structured data for this blog post
+  const jsonLd = generateBlogPostSchema({
+    title: blogData?.title || '',
+    slug: postId,
+    publishDate: blogData?.date || '2025-06-18',
+    author: 'Dr. Munisa',
+    excerpt: blogData?.excerpt || '',
+    featuredImage: '/images/blog/hair-transplant-process.jpg'
+  });
+
   return (
     <>
+      <SEOHead
+        title={blogData?.title + ' | Dr Munisa Clinic'}
+        description={blogData?.excerpt || 'Soch ko\'chirib o\'tkazish jarayoni, tiklanish muddati va natijalar haqida muhim ma\'lumotlar.'}
+        canonicalUrl={`https://dr-munisa.uz/blog/${postId}`}
+        ogType="article"
+        ogImage="/images/blog/hair-transplant-process.jpg"
+        jsonLd={jsonLd}
+      />
       <div className="blog-post-page">
         {/* Share button positioned absolutely */}
         <button className="share-button-large" onClick={shareToTelegram}>
@@ -254,7 +360,7 @@ const BlogPost = () => {
             <path d="M8.59 13.51L15.42 17.49" stroke="#0a0f30" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M15.41 6.51L8.59 10.49" stroke="#0a0f30" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Bo'lishish
+          {t('blog.share', 'Share')}
         </button>
         
         <div className="blog-post-header">
@@ -271,7 +377,7 @@ const BlogPost = () => {
                   <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                Ortga
+                {t('blog.back', 'Back')}
               </Link>
             </div>
           </div>
@@ -279,26 +385,33 @@ const BlogPost = () => {
         
         <div className="blog-post-content-wrapper">
           <div className="container">
-            <h1 className="blog-post-title">{post.title}</h1>
-            
-            <div className="blog-post-meta">
-              <div className="blog-post-date">{post.date} | {post.readTime}</div>
-            
-             
-              <div className="blog-post-category">{post.category}</div>
-            </div>
-            
-            <div 
-              ref={blogContentRef}
-              className="blog-post-content" 
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            ></div>
+            {blogData ? (
+              <>
+                <h1 className="blog-post-title">{blogData.title}</h1>
+                
+                <div className="blog-post-meta">
+                  <div className="blog-post-date">{blogData.date} | {blogData.readTime}</div>
+                  <div className="blog-post-category">{blogData.category}</div>
+                </div>
+                
+                <div 
+                  ref={blogContentRef}
+                  className="blog-post-content" 
+                  dangerouslySetInnerHTML={{ __html: blogData.content }}
+                ></div>
+              </>
+            ) : (
+              <>
+                <h1>{t('blog.postNotFound', 'Blog Post Not Found')}</h1>
+                <p>{t('blog.postNotFoundMessage', "Sorry, the blog post you're looking for doesn't exist.")}</p>
+              </>
+            )}
             
             <div className="blog-post-contact">
-              <h3>Bepul konsultatsiya olish uchun</h3>
-              <p>Mutaxassislarimizdan biri bilan bog'lanish uchun quyidagi raqamga qo'ng'iroq qiling:</p>
+              <h3>{t('blog.freeConsultation', 'For a free consultation')}</h3>
+              <p>{t('blog.contactSpecialist', 'Call the following number to connect with one of our specialists:')}</p>
               <a href="tel:+998949590000" className="contact-button">+998 94 959 0000</a>
-              <p className="contact-note">Ish vaqti: Dushanba-Shanba, 9:00 - 18:00</p>
+              <p className="contact-note">{t('blog.workingHours', 'Working hours: Monday-Saturday, 9:00 - 18:00')}</p>
             </div>
           </div>
         </div>

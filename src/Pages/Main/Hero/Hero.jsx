@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import "./Hero.css"
 import HeroImg from "../../../assets/Images/hero.png"
 import HeroInvert from "../../../assets/Images/heroinvert.png"
 import Input from '../../../assets/Components/Input/Input'
 import Button from '../../../assets/Components/Btn/Button'
 const Hero = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [formattedPhone, setFormattedPhone] = useState('')
@@ -46,14 +48,14 @@ const Hero = () => {
     // Prevent default behavior (scrolling to top)
     e.preventDefault();
     if (!name) {
-      setErrorMessage('Iltimos, ismingizni kiriting')
+      setErrorMessage(t('hero.nameError'))
       setShowError(true)
       setTimeout(() => setShowError(false), 6000)
       return
     }
     
     if (!phone || phone.length < 9) {
-      setErrorMessage('Telefon raqami kamida 9 ta raqamdan iborat bo\'lishi kerak')
+      setErrorMessage(t('hero.phoneError'))
       setShowError(true)
       setTimeout(() => setShowError(false), 6000)
       return
@@ -149,9 +151,9 @@ const Hero = () => {
                 <path d="M16 22C16 22 18 24 20 24C22 24 24 22 24 22" stroke="#334bff" strokeWidth="2" strokeLinecap="round"/>
               </svg>
             </div>
-            <h3>Xabar yuborildi!</h3>
-            <p>Tabriklaymiz! Sizning xabaringiz muvaffaqiyatli yuborildi. Biz siz bilan tez orada bog'lanamiz.</p>
-            <button onClick={closeModal} className="modal-close-btn">Yopish</button>
+            <h3>{t('success.title')}</h3>
+            <p>{t('success.message')}</p>
+            <button onClick={closeModal} className="modal-close-btn">{t('success.close')}</button>
           </div>
         </div>
       )}
@@ -159,21 +161,19 @@ const Hero = () => {
     <div className="hero-wrapper">
       <div className="hero-content-wrapper">
         <img className='hero-invert reveal reveal-delay-1' src={HeroInvert} alt="heroinvert" width={100} height={"auto"}/>
-        <h1 className='hero-title reveal reveal-delay-2'>Sochlaringiz To'kiliyaptimi?</h1>
-    <p className='hero-text reveal reveal-delay-3'>Biz xavfsiz va samarali, tibbiy jihatdan tasdiqlangan soch tiklash
-muolajalarini taklif qilamiz. Ular tabiiy ko'rinish va uzoq muddatli
-natijalarni ta'minlaydi, ishonchingizni qayta tiklaydi.</p>
+        <h1 className='hero-title reveal reveal-delay-2'>{t('hero.title')}</h1>
+    <p className='hero-text reveal reveal-delay-3'>{t('hero.description')}</p>
         
       </div>
       <img src={HeroImg} alt="doctor" width={520} height={"auto"} className="hero-img reveal reveal-delay-4" />
     </div>
 
    <div className='book-content'>
-    <h2 className='book-title '>Qabulga yozilish!</h2>
+    <h2 className='book-title '>{t('hero.booking')}</h2>
         <div className="book-wrapper">
             <div className="formField ">
               <input required type="text" value={name} onChange={handleNameChange} />
-              <span>Ismingiz</span>
+              <span>{t('hero.name')}</span>
             </div>
             <div className="formField">
               <input 
@@ -183,7 +183,7 @@ natijalarni ta'minlaydi, ishonchingizni qayta tiklaydi.</p>
                 value={formattedPhone} 
                 onChange={handlePhoneChange}
               />
-              <span>Telefon Raqamingiz</span>
+              <span>{t('hero.phone')}</span>
             </div>
             
             {showError && (
@@ -193,7 +193,7 @@ natijalarni ta'minlaydi, ishonchingizni qayta tiklaydi.</p>
             )}
             
             <a href='javascript:void(0)' className='hero-btn' onClick={sendToTelegram} disabled={isLoading}>
-              {isLoading ? 'YUBORILMOQDA...' : 'YUBORISH'}
+              {isLoading ? t('hero.sending') : t('hero.submit')}
             </a>
 
         </div>

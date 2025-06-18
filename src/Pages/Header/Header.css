@@ -92,6 +92,12 @@
   gap: 3rem;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 /* Add styles for nav links */
 .nav-link {
   color: #000;
@@ -239,8 +245,15 @@
     background-color: rgba(10, 15, 48, 0.95);
   }
   
-  .header-btn {
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
     margin-top: 1rem;
+  }
+  
+  .header-btn {
+    margin-top: 0.5rem;
   }
   
   .nav-link {

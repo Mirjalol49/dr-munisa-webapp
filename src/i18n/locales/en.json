@@ -1,0 +1,175 @@
+{
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "results": "Results",
+    "blog": "Blog",
+    "contact": "CONTACT"
+  },
+  "hero": {
+    "title": "Are You Losing Your Hair?",
+    "description": "We offer safe and effective, medically approved hair restoration treatments that provide natural-looking, long-lasting results and restore your confidence.",
+    "booking": "Book an Appointment!",
+    "name": "Your Name",
+    "phone": "Your Phone Number",
+    "submit": "SUBMIT",
+    "sending": "SENDING...",
+    "nameError": "Please enter your name",
+    "phoneError": "Phone number must be at least 9 digits",
+    "freeConsultation": "Free Consultation",
+    "thankYou": "Thank you, {{name}}!",
+    "successMessage": "Your request has been received. We will contact you shortly.",
+    "namePlaceholder": "Enter your name",
+    "phonePlaceholder": "+998 __ ___ __ __"
+  },
+  "services": {
+    "title": "Our Services",
+    "hairTransplant": {
+      "title": "Hair Transplantation",
+      "description": "A natural and permanent solution for hair loss using advanced FUE or DHI methods."
+    },
+    "beardTransplant": {
+      "title": "Beard Transplantation",
+      "description": "Make your beard dense and beautiful with an advanced, minimally invasive method. We guarantee natural growth and long-lasting results."
+    },
+    "eyebrowTransplant": {
+      "title": "Eyebrow Transplantation",
+      "description": "Shape and thicken your eyebrows with your own hair for a natural look."
+    },
+    "prpTherapy": {
+      "title": "PRP Therapy for Hair Loss",
+      "description": "Treatment with platelet-rich plasma to stimulate hair growth and strengthen follicles."
+    },
+    "dermatology": {
+      "title": "Dermatology Consultation",
+      "description": "Get specialist advice and customized treatment plans for hair loss, scalp diseases, and skin problems."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "How long does the treatment last?",
+        "answer": "The duration of treatment is determined according to each patient's condition. The average course lasts 7-14 days, but this period may be extended in complex cases."
+      },
+      {
+        "question": "What documents are required for treatment?",
+        "answer": "Passport, medical insurance policy, and previous examination results if available are required. Visa and registration documents are also necessary for foreign citizens."
+      },
+      {
+        "question": "How is the food organized during treatment?",
+        "answer": "Special diet meals are prepared for patients in our clinic. An individually tailored nutrition plan is provided for each patient."
+      },
+      {
+        "question": "What are the treatment prices?",
+        "answer": "Prices vary depending on the services provided and the duration of treatment. You can contact our clinic to find out exact prices."
+      },
+      {
+        "question": "What preparation is needed before treatment?",
+        "answer": "It is recommended to undergo all examinations prescribed by the doctor and take recommended medications before treatment."
+      },
+      {
+        "question": "What specialists work in the clinic?",
+        "answer": "Our clinic employs highly qualified doctors, including therapists, neurologists, cardiologists, physiotherapists, and other specialists."
+      },
+      {
+        "question": "Can my relatives visit me during treatment?",
+        "answer": "Yes, your relatives can visit you during designated visiting hours. You can get information about visiting hours from our clinic administration."
+      },
+      {
+        "question": "What recommendations should be followed after treatment?",
+        "answer": "It is recommended to strictly follow all recommendations given by the doctor, come for control examinations at the appointed time, and if necessary, adhere to the diet and physical activity regimen."
+      }
+    ]
+  },
+  "results": {
+    "title": "Results",
+    "hair": "Hair",
+    "beard": "Beard",
+    "eyebrow": "Eyebrow",
+    "hairAlt": "Hair transplantation result",
+    "beardAlt": "Beard transplantation result",
+    "eyebrowAlt": "Eyebrow transplantation result"
+  },
+  "about": {
+    "description1": "Dr. Munisa is a dedicated and experienced hair restoration specialist who has trained at Turkey's most prestigious clinics known for their leadership in hair transplantation methods.",
+    "description2": "With a deep understanding of advanced techniques and commitment to natural results, she has helped numerous clients regain their confidence and achieve lasting transformations."
+  },
+  "blog": {
+    "title": "Our Blog",
+    "backToHome": "Home page",
+    "readTime": "minute read",
+    "category": "Hair",
+    "back": "Back",
+    "backToBlog": "← Back to Blog",
+    "postNotFound": "Blog Post Not Found",
+    "postNotFoundMessage": "Sorry, the blog post you're looking for doesn't exist.",
+    "share": "Share",
+    "freeConsultation": "For a free consultation",
+    "contactSpecialist": "Call the following number to connect with one of our specialists:",
+    "workingHours": "Working hours: Monday-Saturday, 9:00 - 18:00",
+    "posts": {
+      "post1": {
+        "title": "What to Expect After Hair Transplantation: Recovery, Results, and Helpful Tips",
+        "date": "MAY 11, 2025",
+        "readTime": "3"
+      },
+      "post2": {
+        "title": "Is the Hair Transplantation Process Painful?",
+        "date": "April 12, 2025",
+        "readTime": "5"
+      },
+      "post3": {
+        "title": "Hair Transplantation: Before and After - What Real Results Look Like",
+        "date": "MAY 9, 2025",
+        "readTime": "6"
+      }
+    },
+    "blogPosts": {
+      "maslahatlar": {
+        "title": "What to Expect After Hair Transplantation: Recovery, Results, and Helpful Tips",
+        "category": "Hair",
+        "date": "MAY 11, 2025",
+        "readTime": "3 Minute Read",
+        "content": "<p>If you're considering hair transplantation, understanding the recovery process is just as important as the procedure itself. In this post, we'll walk you through what happens after hair transplantation and how to care for your new hair to achieve the best results.</p><h2>1. Immediate Care</h2><p>It's normal to experience mild swelling, redness, and scabbing in the treated area after the procedure. Your doctor will provide detailed instructions on how to clean your scalp and when to start washing your hair again. It's recommended not to touch, scratch, or wear headgear on the treated area for the first few days.</p><h2>2. Shedding Phase</h2><p>Don't worry if your newly transplanted hair begins to fall out after 2-3 weeks - this is completely normal. This is called 'shock loss' and is a temporary part of the healing process. New, stronger hair will begin to grow in its place.</p><h2>3. Hair Growth Timeline</h2><p>• 3-4 months: Fine hairs begin to appear.</p><p>• 6 months: Noticeable improvement and thickening of strands.</p><p>• 12 months and beyond: Full results become visible.</p><p>Everyone's hair grows at different rates, but by one year, most patients enjoy a full head of hair with a natural appearance.</p><h2>4. Tips for Fast and Healthy Recovery</h2><p>• Follow all aftercare instructions from your clinic completely.</p><p>• Avoid strenuous physical activity for at least one week.</p><p>• Stay hydrated and maintain a healthy diet.</p><p>• Be patient — hair growth takes time.</p><h4>Ready to start your hair restoration journey? Contact our clinic today for a free consultation with one of our specialists.</h4>"
+      },
+      "kochirish-jarayoni": {
+        "title": "Is the Hair Transplantation Process Painful?",
+        "category": "Hair",
+        "date": "April 12, 2025",
+        "readTime": "5 Minute Read",
+        "content": "<p>Thinking about hair transplantation but worried about pain? You're not alone. Many people wonder what discomfort they might experience during and after the procedure. In this article, we'll explain it openly so you can feel more confident and informed.</p><h2>💉 Is the procedure painful?</h2><p>Short answer: thanks to modern techniques and local anesthesia, hardly at all.</p><p>Most patients report feeling only slight stinging during the administration of anesthesia. After that, the area becomes numb and you won't feel any pain during the actual transplantation process.</p><h3>🛠️ During the Procedure (FUE or FUT)</h3><p>• FUE (Follicular Unit Extraction): Patients typically feel almost no discomfort during the procedure. The process may take several hours, but during this time you can comfortably rest, watch a movie, or even take a nap.</p><h3>🩹 Tips for Ensuring Recovery Comfort</h3><p>• Try not to touch or scratch the wound or operated area</p><p>• Sleep with your head slightly elevated</p>"
+      },
+      "vaqt-jadvali": {
+        "title": "Hair Transplantation: Before and After - What Real Results Look Like",
+        "category": "Hair",
+        "date": "MAY 9, 2025",
+        "readTime": "6 Minute Read",
+        "content": "<p>When considering hair transplantation, one of the most important factors is understanding what results you can realistically expect. In this comprehensive guide, we'll walk you through the typical before and after journey of hair transplantation patients.</p>"
+      }
+    }
+  },
+  "gameCharacter": {
+    "message": "Contact Dr. Munisa now for a free consultation",
+    "connect": "Connect",
+    "later": "Later"
+  },
+  "success": {
+    "title": "Message Sent!",
+    "message": "Congratulations! Your message has been successfully sent. We will contact you soon.",
+    "close": "Close"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "home": "Home",
+    "services": "Services",
+    "results": "Results",
+    "about": "About",
+    "developer": "Developed by"
+  },
+  "language": {
+    "uz": "UZ",
+    "en": "EN",
+    "ru": "RU"
+  }
+}

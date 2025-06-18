@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next';
 // CSS styles
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, onSubmit }) => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isAnimating, setIsAnimating] = useState(false);
@@ -59,44 +61,44 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
     <div className={`modal-overlay ${isOpen ? 'active' : 'closing'}`} onClick={onClose}>
       <div className={`modal-container ${isOpen ? 'active' : 'closing'}`} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h3>Bepul Konsultatsiya</h3>
+          <h3>{t('hero.freeConsultation')}</h3>
           <button className="close-button" onClick={onClose} disabled={isSubmitting}>×</button>
         </div>
         <div className="modal-body">
           {showSuccess ? (
             <div className="success-message">
               <div className="success-icon">✓</div>
-              <h4>Rahmat, {name}!</h4>
-              <p>Sizning so'rovingiz qabul qilindi. Tez orada siz bilan bog'lanamiz.</p>
+              <h4>{t('hero.thankYou', { name })}</h4>
+              <p>{t('hero.successMessage')}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name">Ismingiz</label>
+                <label htmlFor="name">{t('hero.name')}</label>
                 <input
                   type="text"
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  placeholder="Ismingizni kiriting"
+                  placeholder={t('hero.namePlaceholder')} 
                   disabled={isSubmitting}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="phoneNumber">Telefon raqamingiz</label>
+                <label htmlFor="phoneNumber">{t('hero.phone')}</label>
                 <input
                   type="tel"
                   id="phoneNumber"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   required
-                  placeholder="+998 __ ___ __ __"
+                  placeholder={t('hero.phonePlaceholder')} 
                   disabled={isSubmitting}
                 />
               </div>
               <button type="submit" className="submit-button" disabled={isSubmitting}>
-                {isSubmitting ? 'Yuborilmoqda...' : 'Yuborish'}
+                {isSubmitting ? t('hero.sending') : t('hero.submit')}
               </button>
             </form>
           )}

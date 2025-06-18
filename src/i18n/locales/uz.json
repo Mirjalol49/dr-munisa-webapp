@@ -1,0 +1,175 @@
+{
+  "header": {
+    "home": "Asosiy",
+    "services": "Xizmatlar",
+    "results": "Natijalar",
+    "blog": "Blog",
+    "contact": "BOG'LANISH"
+  },
+  "hero": {
+    "title": "Sochlaringiz to'kilmoqdami?",
+    "description": "Biz tabiiy ko'rinish, uzoq muddatli natijalar va ishonchingizni qaytaradigan xavfsiz va samarali, tibbiy tasdiqlangan soch tiklanish protseduralarini taklif qilamiz.",
+    "booking": "Qabulga yoziling!",
+    "name": "Ismingiz",
+    "phone": "Telefon raqamingiz",
+    "submit": "YUBORISH",
+    "sending": "YUBORILMOQDA...",
+    "nameError": "Iltimos, ismingizni kiriting",
+    "phoneError": "Telefon raqami kamida 9 ta raqamdan iborat bo'lishi kerak",
+    "freeConsultation": "Bepul Konsultatsiya",
+    "thankYou": "Rahmat, {{name}}!",
+    "successMessage": "Sizning so'rovingiz qabul qilindi. Tez orada siz bilan bog'lanamiz.",
+    "namePlaceholder": "Ismingizni kiriting",
+    "phonePlaceholder": "+998 __ ___ __ __"
+  },
+  "services": {
+    "title": "Bizning Xizmatlar",
+    "hairTransplant": {
+      "title": "Soch Transplantatsiyasi",
+      "description": "Ilg'or FUE yoki DHI usullaridan foydalangan holda soch to'kilishi uchun tabiiy va doimiy yechim."
+    },
+    "beardTransplant": {
+      "title": "Soqol Transplantatsiyasi",
+      "description": "Ilg'or, kam invaziv usul bilan soqolingizni zich va chiroyli qiling. Tabiiy o'sish va uzoq muddatli natijaga kafolat beramiz."
+    },
+    "eyebrowTransplant": {
+      "title": "Qosh Transplantatsiyasi",
+      "description": "Tabiiy ko'rinish uchun qoshlaringizni o'z sochlaringiz yordamida shakllantiring va qalinlashtiring."
+    },
+    "prpTherapy": {
+      "title": "Soch to'kilishida PRP terapiyasi",
+      "description": "Soch o'sishini rag'batlantirish va follikulalarni mustahkamlash uchun trombotsitlarga boy plazma bilan davolash."
+    },
+    "dermatology": {
+      "title": "Dermatalogiya Konsultatsiyasi",
+      "description": "Soch to'kilishi, bosh terisi kasalliklari va teri muammolari uchun mutaxassis maslahati va moslashtirilgan davolash rejalarini oling."
+    }
+  },
+  "faq": {
+    "title": "Ko'p Beriladigan Savollar",
+    "questions": [
+      {
+        "question": "Davolanish qancha vaqt davom etadi?",
+        "answer": "Davolanish muddati har bir bemorning holatiga qarab belgilanadi. O'rtacha kurs 7-14 kun davom etadi, ammo murakkab holatlarda bu muddat uzaytirilishi mumkin."
+      },
+      {
+        "question": "Davolanish uchun qanday hujjatlar kerak?",
+        "answer": "Pasport, tibbiy sug'urta polisi va mavjud bo'lsa, oldingi tekshiruvlar natijalari talab qilinadi. Chet el fuqarolari uchun viza va ro'yxatdan o'tish hujjatlari ham zarur."
+      },
+      {
+        "question": "Davolanish paytida ovqatlanish qanday tashkil etiladi?",
+        "answer": "Klinikamizda bemorlar uchun maxsus parhez ovqatlar tayyorlanadi. Har bir bemor uchun individual tarzda tuzilgan ovqatlanish rejimi taqdim etiladi."
+      },
+      {
+        "question": "Davolanish narxlari qanday?",
+        "answer": "Narxlar ko'rsatiladigan xizmatlar va davolanish muddatiga qarab farqlanadi. Aniq narxlarni bilish uchun klinikamizga murojaat qilishingiz mumkin."
+      },
+      {
+        "question": "Davolanishdan oldin qanday tayyorgarlik ko'rish kerak?",
+        "answer": "Davolanishdan oldin shifokor tomonidan belgilangan barcha tekshiruvlardan o'tish va tavsiya etilgan dori-darmonlarni qabul qilish tavsiya etiladi."
+      },
+      {
+        "question": "Klinikada qanday mutaxassislar ishlaydi?",
+        "answer": "Klinikamizda yuqori malakali shifokorlar, jumladan, terapevtlar, nevrologlar, kardiologlar, fizioterapevtlar va boshqa mutaxassislar ishlaydi."
+      },
+      {
+        "question": "Davolanish paytida yaqinlarim meni ko'rgani kelishi mumkinmi?",
+        "answer": "Ha, belgilangan tashrif vaqtlarida yaqinlaringiz sizni ko'rgani kelishlari mumkin. Tashrif vaqtlari haqida ma'lumotni klinikamiz ma'muriyatidan olishingiz mumkin."
+      },
+      {
+        "question": "Davolanishdan keyin qanday tavsiyalarga amal qilish kerak?",
+        "answer": "Davolanishdan keyin shifokor tomonidan berilgan barcha tavsiyalarga qat'iy amal qilish, belgilangan vaqtda nazorat tekshiruvlariga kelish va zarur bo'lsa, parhez va jismoniy faollik rejimiga rioya qilish tavsiya etiladi."
+      }
+    ]
+  },
+  "results": {
+    "title": "Natijalar",
+    "hair": "Soch",
+    "beard": "Soqol",
+    "eyebrow": "Qosh",
+    "hairAlt": "Soch transplantatsiyasi natija",
+    "beardAlt": "Soqol transplantatsiyasi natija",
+    "eyebrowAlt": "Qosh transplantatsiyasi natija"
+  },
+  "about": {
+    "description1": "Doktor Munisa sochlarni tiklash bo'yicha fidoyi va tajribali mutaxassis bo'lib, sochni ko'chirib o'tkazish usullari bo'yicha yetakchiligi bilan mashhur bo'lgan Turkiyaning eng nufuzli klinikalarida tahsil olgan.",
+    "description2": "Ilg'or usullarni chuqur tushunish va tabiiy natijalarga sodiqlik bilan u ko'plab mijozlarga o'zlariga bo'lgan ishonchni tiklashga va barqaror o'zgarishlarga erishishga yordam berdi."
+  },
+  "blog": {
+    "title": "Bizning Blog",
+    "backToHome": "Bosh sahifa",
+    "readTime": "daqiqalik o'qish",
+    "category": "Soch",
+    "back": "Ortga",
+    "backToBlog": "← Blogga qaytish",
+    "postNotFound": "Blog post topilmadi",
+    "postNotFoundMessage": "Kechirasiz, siz qidirayotgan blog post mavjud emas.",
+    "share": "Bo'lishish",
+    "freeConsultation": "Bepul konsultatsiya olish uchun",
+    "contactSpecialist": "Mutaxassislarimizdan biri bilan bog'lanish uchun quyidagi raqamga qo'ng'iroq qiling:",
+    "workingHours": "Ish vaqti: Dushanba-Shanba, 9:00 - 18:00",
+    "posts": {
+      "post1": {
+        "title": "Soch ko'chirib o'tkazishdan so'ng kutilayotgan holatlar: tiklanish, natijalar va foydali maslahatlar",
+        "date": "11 MAY, 2025",
+        "readTime": "3"
+      },
+      "post2": {
+        "title": "Soch ko'chirib o'tkazish jarayoni og'riqli bo'ladimi?",
+        "date": "12 APREL, 2025",
+        "readTime": "5"
+      },
+      "post3": {
+        "title": "Soch ko'chirib o'tkazish: oldin va keyin - haqiqiy natijalar qanday ko'rinadi",
+        "date": "9 MAY, 2025",
+        "readTime": "6"
+      }
+    },
+    "blogPosts": {
+      "maslahatlar": {
+        "title": "Soch ko'chirib o'tkazishdan so'ng kutilayotgan holatlar: tiklanish, natijalar va foydali maslahatlar",
+        "category": "Soch",
+        "date": "11 MAY, 2025",
+        "readTime": "3 daqiqalik o'qish",
+        "content": "<p>Agar siz soch ko'chirib o'tkazish haqida o'ylayotgan bo'lsangiz, tiklanish jarayonini tushunish ham protseduraning o'zi kabi muhimdir. Ushbu maqolada biz sizga soch ko'chirib o'tkazishdan keyin nima sodir bo'lishini va eng yaxshi natijalarni olish uchun yangi sochlaringizni qanday parvarish qilishni tushuntiramiz.</p><h2>1. Darhol parvarish</h2><p>Protseduradan keyin davolangan joyda yengil shish, qizarish va qatqaloqlanish bo'lishi normal holat. Shifokoringiz bosh terisini qanday tozalash va sochingizni qachon yana yuva boshlash haqida batafsil ko'rsatmalar beradi. Dastlabki bir necha kun davomida davolangan joyga tegmaslik, qashlamaslik va bosh kiyim kiymaslik tavsiya etiladi.</p><h2>2. To'kilish bosqichi</h2><p>Agar yangi ko'chirib o'tkazilgan sochlaringiz 2-3 hafta o'tgach to'kila boshlasa, xavotir olmang - bu mutlaqo normal holat. Bu 'shok yo'qotish' deb ataladi va davolanish jarayonining vaqtinchalik qismidir. Uning o'rniga yangi, kuchliroq sochlar o'sa boshlaydi.</p><h2>3. Sochlarning o'sish muddati</h2><p>• 3-4 oy: ingichka sochlar paydo bo'la boshlaydi.</p><p>• 6 oy: sezilarli yaxshilanish va tolalarning qalinlashishi.</p><p>• 12 oy va undan keyin: To'liq natijalar ko'rinadi.</p><p>Har kimning sochi har xil tezlikda o'sadi, lekin bir yoshga to'lganda bemorlarning ko'pchiligi tabiiy ko'rinishga ega bo'lgan to'liq sochdan bahramand bo'ladi.</p><h2>4. Tez va sog'lom tiklanish uchun maslahatlar</h2><p>• Klinikangizning barcha parvarish ko'rsatmalariga to'liq rioya qiling.</p><p>• Kamida bir hafta davomida og'ir jismoniy faoliyatdan saqlaning.</p><p>• Suvni ko'p iching va sog'lom ovqatlanishni saqlang.</p><p>• Sabr qiling — sochning o'sishi vaqt talab qiladi.</p><h4>Soch tiklanish yo'lingizni boshlashga tayyormisiz? Mutaxassislarimizdan biri bilan bepul konsultatsiya uchun bugun klinikamizga murojaat qiling.</h4>"
+      },
+      "kochirish-jarayoni": {
+        "title": "Soch ko'chirib o'tkazish jarayoni og'riqli bo'ladimi?",
+        "category": "Soch",
+        "date": "12 APREL, 2025",
+        "readTime": "5 daqiqalik o'qish",
+        "content": "<p>Soch ko'chirib o'tkazish haqida o'ylayapsizu, lekin og'riq haqida xavotirlanyapsizmi? Siz yolg'iz emassiz. Ko'p odamlar protsedura davomida va undan keyin qanday noqulaylik his qilishlari mumkinligi haqida o'ylashadi. Ushbu maqolada biz buni ochiq tushuntiramiz, shunda siz o'zingizni ishonchliroq va ma'lumotli his qilasiz.</p><h2>💉 Protsedura og'riqli bo'ladimi?</h2><p>Qisqa javob: zamonaviy usullar va mahalliy anesteziya tufayli deyarli yo'q.</p><p>Ko'pchilik bemorlar anesteziya berilishi paytida faqat yengil sanchishni his qilishlarini aytishadi. Shundan so'ng, soha uyushib qoladi va siz soch ko'chirib o'tkazish jarayonida hech qanday og'riq sezmaysiz.</p><h3>🛠️ Protsedura paytida (FUE yoki FUT)</h3><p>• FUE (Follikulyar birlik ekstraktsiyasi): Bemorlar odatda protsedura paytida deyarli hech qanday noqulaylik his qilmaydilar. Jarayon bir necha soat davom etishi mumkin, lekin shu vaqt davomida siz qulay dam olishingiz, film tomosha qilishingiz yoki hatto uxlab qolishingiz mumkin.</p><h3>🩹 Tiklanish qulayligini ta'minlash bo'yicha maslahatlar</h3><p>• Jarohat yoki operatsiya qilingan joyga tegmaslikka va qashlamaslikka harakat qiling</p><p>• Boshingizni biroz ko'tarib uxlang</p>"
+      },
+      "vaqt-jadvali": {
+        "title": "Soch ko'chirib o'tkazish: oldin va keyin - haqiqiy natijalar qanday ko'rinadi",
+        "category": "Soch",
+        "date": "9 MAY, 2025",
+        "readTime": "6 daqiqalik o'qish",
+        "content": "<p>Soch ko'chirib o'tkazishni ko'rib chiqayotganda, eng muhim omillardan biri siz qanday natijalarni realistik kutishingiz mumkinligini tushunishdir. Ushbu keng qamrovli qo'llanmada biz sizni soch ko'chirib o'tkazish bemorlarining tipik oldin va keyin sayohati bo'ylab olib boramiz.</p>"
+      }
+    }
+  },
+  "gameCharacter": {
+    "message": "Hoziroq Dr Munisa bilan bog'lanib bepul konsultatsiya oling",
+    "connect": "Bog'lanish",
+    "later": "Keyinroq"
+  },
+  "success": {
+    "title": "Xabar yuborildi!",
+    "message": "Tabriklaymiz! Sizning xabaringiz muvaffaqiyatli yuborildi. Biz siz bilan tez orada bog'lanamiz.",
+    "close": "Yopish"
+  },
+  "footer": {
+    "rights": "Barcha huquqlar himoyalangan.",
+    "home": "Asosiy",
+    "services": "Xizmatlar",
+    "results": "Natijalar",
+    "about": "Haqida",
+    "developer": "Ishlab chiqaruvchi"
+  },
+  "language": {
+    "uz": "UZ",
+    "en": "EN",
+    "ru": "RU"
+  }
+}

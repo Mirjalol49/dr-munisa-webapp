@@ -1,0 +1,132 @@
+/* Language Switcher Container */
+.language-switcher-container {
+  position: relative;
+  display: inline-block;
+  z-index: 1000;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.language-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: #333;
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  min-width: 80px; /* Fixed width to prevent movement */
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.language-dropdown-toggle:hover {
+  background-color: #4361EE;
+  color: white;
+}
+
+.language-flag-container {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  margin-right: 5px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.language-flag {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.language-code {
+  font-weight: 500;
+  font-size: 14px;
+  flex: 1;
+  text-align: center;
+}
+
+.dropdown-arrow {
+  margin-left: 5px;
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.language-dropdown-portal {
+  position: fixed; /* Fixed position relative to viewport */
+  background-color: white;
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  min-width: 150px;
+  overflow: hidden;
+  animation: fade-in 0.2s ease;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+
+@keyframes fade-in {
+  from { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+  }
+
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+
+.dropdown-item {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: #333;
+  font-size: 14px;
+}
+
+.dropdown-flag {
+  width: 20px;
+  height: 15px;
+  margin-right: 10px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.dropdown-item span {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background-color: #4361EE;
+  color: white;
+}
+
+.dropdown-item.active {
+  background-color: rgb(67 97 238 / 20%);
+  font-weight: 600;
+}
+
+.dropdown-item.active:hover {
+  background-color: #4361EE;
+  color: white;
+}
+
+@media (width <= 768px) {
+  .language-dropdown-portal {
+    justify-content: center;
+    min-width: 150px;
+  }
+}

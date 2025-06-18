@@ -12,7 +12,7 @@ import { ModalProvider } from './context/ModalContext'
 const Main = lazy(() => import('./Pages/Main/Main'))
 const Blog = lazy(() => import('./Pages/Blog/Blog'))
 const BlogPost = lazy(() => import('./Pages/Blog/BlogPost'))
-const HeaderDemo = lazy(() => import('./Pages/HeaderDemo/HeaderDemo'))
+
 // Main layout component that includes scroll reveal
 const MainLayout = () => {
   // Initialize scroll reveal animations only for main page
@@ -33,6 +33,7 @@ const LazyLoadingWrapper = ({ children }) => {
 };
 
 function App() {
+  // Language detection and initialization is handled in i18n.js
   return (
     <ModalProvider>
       <BrowserRouter>
@@ -58,13 +59,7 @@ function App() {
               </LazyLoadingWrapper>
             </Suspense>
           } />
-          <Route path="/header-demo" element={
-            <Suspense fallback={null}>
-              <LazyLoadingWrapper>
-                <HeaderDemo />
-              </LazyLoadingWrapper>
-            </Suspense>
-          } />
+
         </Routes>
       </BrowserRouter>
     </ModalProvider>

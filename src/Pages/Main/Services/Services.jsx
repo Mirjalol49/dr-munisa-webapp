@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import "./Services.css"
 import ServiceCard from '../../../assets/Components/ServiceCard/ServiceCard'
 import Hair from "../../../assets/Images/1.jpg"
@@ -8,16 +9,17 @@ import PRP from "../../../assets/Images/4.jpg"
 import Dermatolog from "../../../assets/Images/5.jpg"
 
 const Services = () => {
+  const { t } = useTranslation();
   return (
     <section id="services" className='service'>
         <div className="container">
-            <h2 className='service-title reveal reveal-slide-up'>Bizning Xizmatlar</h2>
+            <h2 className='service-title reveal reveal-slide-up'>{t('services.title')}</h2>
             <div className="service-wrapper">
-               <ServiceCard img={Hair} title={"Soch Transplantatsiyasi"} text={"Ilg‘or FUE yoki DHI usullaridan foydalangan holda soch to‘kilishi uchun tabiiy va doimiy yechim."}/>
-               <ServiceCard img={Beard} title={"Soqol Transplantatsiyasi"} text={"Ilg‘or, kam invaziv usul bilan soqolingizni zich va chiroyli qiling. Tabiiy o‘sish va uzoq muddatli natijaga kafolat beramiz."}/>
-               <ServiceCard img={EyeBrow} title={"Qosh Transplantatsiyasi"} text={"Tabiiy ko‘rinish uchun qoshlaringizni o‘z sochlaringiz yordamida shakllantiring va qalinlashtiring."}/>
-               <ServiceCard img={PRP} title={"Soch to‘kilishida PRP terapiyasi"} text={"Soch o‘sishini rag‘batlantirish va follikulalarni mustahkamlash uchun trombotsitlarga boy plazma bilan davolash."}/>
-               <ServiceCard img={Dermatolog} title={"Dermatalogiya Konsultatsiyasi"} text={"Soch to‘kilishi, bosh terisi kasalliklari va teri muammolari uchun mutaxassis maslahati va moslashtirilgan davolash rejalarini oling."}/>
+               <ServiceCard img={Hair} title={t('services.hairTransplant.title')} text={t('services.hairTransplant.description')}/>
+               <ServiceCard img={Beard} title={t('services.beardTransplant.title')} text={t('services.beardTransplant.description')}/>
+               <ServiceCard img={EyeBrow} title={t('services.eyebrowTransplant.title')} text={t('services.eyebrowTransplant.description')}/>
+               <ServiceCard img={PRP} title={t('services.prpTherapy.title')} text={t('services.prpTherapy.description')}/>
+               <ServiceCard img={Dermatolog} title={t('services.dermatology.title')} text={t('services.dermatology.description')}/>
             </div>
         </div>
       

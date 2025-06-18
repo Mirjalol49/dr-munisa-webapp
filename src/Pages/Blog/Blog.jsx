@@ -1,15 +1,42 @@
-import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useMemo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Footer from '../Footer/Footer'
 import './Blog.css'
 import './BlogPost.css'
 
-import blogImage1 from '../../assets/Images/blog1img.avif'
-import blogImage2 from '../../assets/Images/blog2.jpg'
+// Import images - Uzbek
+import blogImage1Uz from '../../assets/Images/soch_uz.png'
+import blogImage2Uz from '../../assets/Images/soch2_uz.png'
+import blogImage3Uz from '../../assets/Images/josh_uz.png'
 
-import blogImage3 from '../../assets/Images/josh.png'
+// Import images - English
+import blogImage1En from '../../assets/Images/soch_en.png'
+import blogImage2En from '../../assets/Images/soch2_en.png'
+import blogImage3En from '../../assets/Images/josh_en.png'
+
+// Import images - Russian
+import blogImage1Ru from '../../assets/Images/soch_ru.png'
+import blogImage2Ru from '../../assets/Images/soch2_ru.png'
+import blogImage3Ru from '../../assets/Images/josh_ru.png'
 
 const Blog = () => {
+  const { t, i18n } = useTranslation();
+  
+  // Get current language
+  const currentLanguage = i18n.language;
+  
+  // Select images based on current language
+  const blogImages = useMemo(() => {
+    switch(currentLanguage) {
+      case 'en':
+        return [blogImage1En, blogImage2En, blogImage3En];
+      case 'ru':
+        return [blogImage1Ru, blogImage2Ru, blogImage3Ru];
+      default: // 'uz' or any other language defaults to Uzbek
+        return [blogImage1Uz, blogImage2Uz, blogImage3Uz];
+    }
+  }, [currentLanguage]);
   const navigate = useNavigate();
   
   // Optimize image loading
@@ -65,32 +92,31 @@ const Blog = () => {
                 <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              Asosiy sahifa
+              {t('blog.backToHome')}
             </Link>
           </div>
         </div>
         
         <div className="blog-post-content-wrapper">
           <div className="container">
-            <h1 className="blog-post-title">Bizning Blog</h1>
+            <h1 className="blog-title">{t('blog.title')}</h1>
           
           <div className="blog-list">
             <div 
               className="blog-card" 
               onClick={() => handleBlogCardClick('maslahatlar')}
             >
-              <img 
-                src={blogImage1}
-                alt="Hair transplant" 
+              <img
+                src={blogImages[0]}
+                alt="Blog post image"
                 className="blog-image" 
               />
               <div className="blog-content">
-                <div className="blog-date">MAY 11, 2025</div>
-                <h2 className="blog-card-title">
-                Soch ko'chirib o'tkazishdan so'ng kutilayotgan holatlar: tiklanish, natijalar va foydali maslahatlar</h2>
+                <div className="blog-date">{t('blog.posts.post1.date')}</div>
+                <h2 className="blog-card-title">{t('blog.posts.post1.title')}</h2>
                 <div className="blog-meta">
-                  <span className="blog-read-time">3 Minutli o'qish</span>
-                  <span className="blog-category">Soch</span>
+                  <span className="blog-read-time">{t('blog.posts.post1.readTime')} {t('blog.readTime')}</span>
+                  <span className="blog-category">{t('blog.category')}</span>
                 </div>
               </div>
             </div>
@@ -99,17 +125,17 @@ const Blog = () => {
               className="blog-card" 
               onClick={() => handleBlogCardClick('kochirish-jarayoni')}
             >
-              <img 
-                src={blogImage2} 
-                alt="Cooking gas stove" 
+              <img
+                src={blogImages[1]}
+                alt="Blog post image"
                 className="blog-image" 
               />
               <div className="blog-content">
-                <div className="blog-date">Aprel 12, 2025</div>
-                <h2 className="blog-card-title">Soch ko'chirib o'tkazish jarayoni og'riqlimi?</h2>
+                <div className="blog-date">{t('blog.posts.post2.date')}</div>
+                <h2 className="blog-card-title">{t('blog.posts.post2.title')}</h2>
                 <div className="blog-meta">
-                  <span className="blog-read-time">5 Minutli o'qish</span>
-                  <span className="blog-category">Soch</span>
+                  <span className="blog-read-time">{t('blog.posts.post2.readTime')} {t('blog.readTime')}</span>
+                  <span className="blog-category">{t('blog.category')}</span>
                 </div>
               </div>
             </div>
@@ -118,17 +144,17 @@ const Blog = () => {
               className="blog-card" 
               onClick={() => handleBlogCardClick('vaqt-jadvali')}
             >
-              <img 
-                src={blogImage3} 
-                alt="Workplace wellness" 
+              <img
+                src={blogImages[2]}
+                alt="Blog post image" 
                 className="blog-image" 
               />
               <div className="blog-content">
-                <div className="blog-date">MAY 9, 2025</div>
-                <h2 className="blog-card-title">Soch ko'chirib o'tkazish: oldin va keyingi holat - haqiqiy natijalar qanday bo'ladi</h2>
+                <div className="blog-date">{t('blog.posts.post3.date')}</div>
+                <h2 className="blog-card-title">{t('blog.posts.post3.title')}</h2>
                 <div className="blog-meta">
-                  <span className="blog-read-time">6 Minutli o'qish</span>
-                  <span className="blog-category">Soch</span>
+                  <span className="blog-read-time">{t('blog.posts.post3.readTime')} {t('blog.readTime')}</span>
+                  <span className="blog-category">{t('blog.category')}</span>
                 </div>
               </div>
             </div>

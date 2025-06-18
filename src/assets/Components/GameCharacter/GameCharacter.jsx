@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 /* CSS import */
 import './GameCharacter.css';
 import characterImg from '../../Images/charecter.png';
@@ -8,6 +9,7 @@ import characterImg from '../../Images/charecter.png';
 let isCharacterDismissedInCurrentView = false;
 
 const GameCharacter = ({ onPlayGame, onDismiss }) => {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const characterRef = useRef(null);
 
@@ -48,16 +50,22 @@ const GameCharacter = ({ onPlayGame, onDismiss }) => {
   return (
     <div className={`game-character-container ${visible ? 'visible' : ''}`} ref={characterRef}>
       <div className="character-image-container">
-        <img src={characterImg} alt="Game Character" className="character-image" />
+        <img 
+          src={characterImg} 
+          alt="Game Character" 
+          className="character-image" 
+          width="300" 
+          height="400" 
+        />
       </div>
       <div className="character-speech-bubble">
-        <p>Hoziroq Dr Munisa bilan bog'lanib bepul kansultatsiya oling</p>
+        <p>{t('gameCharacter.message')}</p>
         <div className="character-buttons">
           <button className="character-button play-button" onClick={handlePlayClick}>
-            Bog'lanish
+            {t('gameCharacter.connect')}
           </button>
           <button className="character-button dismiss-button" onClick={handleDismissClick}>
-            Keyinroq
+            {t('gameCharacter.later')}
           </button>
         </div>
       </div>

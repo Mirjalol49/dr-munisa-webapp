@@ -7,6 +7,8 @@ import Faq from './Faq/Faq'
 import CTA from './CTA/CTA'
 import GameCharacter from '../../assets/Components/GameCharacter/GameCharacter'
 import { useModal } from '../../context/ModalContext'
+import SEOHead from '../../components/SEO/SEOHead'
+import { generateClinicSchema } from '../../components/SEO/ClinicSchema'
 const Main = () => {
   const [showGameCharacter, setShowGameCharacter] = useState(false);
   const { openModal } = useModal();
@@ -50,7 +52,19 @@ const Main = () => {
     setShowGameCharacter(false);
   };
 
+  // Create structured data for the homepage
+  const jsonLd = generateClinicSchema();
+
   return (
+    <>
+      <SEOHead
+        title="Dr Munisa Clinic | Hair & Beard Transplants in Tashkent"
+        description="Natural-looking hair, beard and eyebrow transplants by Dr Munisa. Book a free consultation today for professional hair restoration services."
+        canonicalUrl="https://dr-munisa.uz/"
+        ogType="website"
+        ogImage="/images/clinic-photo.jpg"
+        jsonLd={jsonLd}
+      />
     <main>
       <Hero />
       <Services/>
@@ -67,6 +81,7 @@ const Main = () => {
         />
       )}
     </main>
+    </>
   )
 }
 

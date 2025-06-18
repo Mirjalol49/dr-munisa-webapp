@@ -1,14 +1,14 @@
 .game-character-container {
   position: fixed;
-  bottom: 30px;
+  bottom: 0;
   left: 0;
   display: flex;
   align-items: flex-end;
   transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
   z-index: 1000;
-  max-width: 600px;
+  max-width: 800px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-  transform: translateX(-500px);
+  transform: translateX(-800px);
   pointer-events: none; /* Ensure it doesn't block clicks until visible */
   opacity: 0;
 }
@@ -25,18 +25,21 @@
 }
 
 .character-image-container {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 260px;
   position: relative;
   z-index: 2;
   margin-right: -15px;
   transform-origin: bottom center;
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .character-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   animation: bounce 2s ease-in-out infinite;
@@ -46,14 +49,14 @@
 .character-speech-bubble {
   background-color: white;
   border-radius: 20px;
-  padding: 25px 30px;
+  padding: 22px 26px;
   margin-left: -20px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 1;
-  min-width: 320px;
+  width: 360px;
+  min-width: 360px;
   border: 3px solid #FFE082;
-  background-color: #FFFDE7;
   transform: scale(0.95);
   transition: all 0.5s ease;
   background-image: linear-gradient(to bottom, #FFFDE7, #FFF9C4);
@@ -75,12 +78,15 @@
 
 .character-speech-bubble p {
   margin: 0 0 25px 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   color: #333;
   line-height: 1.4;
-  font-family: 'Satoshi-Bold', sans-serif;
+  font-family: sans-serif;
   letter-spacing: -0.02em;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
 }
 
 .character-buttons {
@@ -89,10 +95,10 @@
 }
 
 .character-button {
-  padding: 12px 24px;
+  padding: 8px 16px;
   border: 2px solid #FBC02D;
   border-radius: 12px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -152,9 +158,7 @@
   }
 }
 
-.character-image {
-  animation: bounce 2s ease infinite;
-}
+/* Animation applied in the main character-image class above */
 
 /* Media query for mobile devices */
 @media (max-width: 600px) {
