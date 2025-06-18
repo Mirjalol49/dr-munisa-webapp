@@ -4,9 +4,9 @@ import { createPortal } from 'react-dom';
 import './LanguageSwitcher.css';
 
 // Import flag images
-import uzFlag from '../../images/flags/uz.svg';
-import enFlag from '../../images/flags/en.svg';
-import ruFlag from '../../images/flags/ru.svg';
+import uzFlag from '../../Images/flags/uz.svg';
+import enFlag from '../../Images/flags/en.svg';
+import ruFlag from '../../Images/flags/ru.svg';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
