@@ -165,7 +165,13 @@
     "services": "Услуги",
     "results": "Результаты",
     "about": "О нас",
-    "developer": "Разработано"
+    "developer": "Разработано",
+    "contactInfo": "Контактная информация",
+    "quickLinks": "Быстрые ссылки",
+    "workDays": "Пн-Пт",
+    "weekend": "Сб-Вс",
+    "closed": "Закрыто",
+    "address": "Ташкент, Юнусабадский район"
   },
   "language": {
     "uz": "UZ",

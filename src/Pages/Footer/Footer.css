@@ -28,7 +28,7 @@
 }
 
 .footer-logo p {
-  font-family: "Wotfard", sans-serif;
+  font-family: Wotfard, sans-serif;
   color: #fff;
   font-size: 0.9rem;
 }
@@ -44,13 +44,13 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: "Wotfard", sans-serif;
+  font-family: Wotfard, sans-serif;
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 8px 12px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255 255 255 / 10%);
 }
 
 .social-link img {
@@ -58,7 +58,7 @@
 }
 
 .social-link.telegram {
-  color: #0088CC;
+  color: #08c;
 }
 
 .social-link.instagram {
@@ -66,12 +66,12 @@
 }
 
 .social-link:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(255 255 255 / 20%);
   transform: translateY(-2px);
 }
 
 .developer-link {
-  font-family: "Wotfard", sans-serif;
+  font-family: Wotfard, sans-serif;
   color: #fcba29;
   font-size: 0.85rem;
   text-decoration: none;
@@ -82,10 +82,57 @@
   color: #fff;
 }
 
+.footer-info {
+  display: flex;
+  gap: 3rem;
+}
+
+.contact-info,
 .footer-links {
   display: flex;
-  gap: 2rem;
-  font-family: "Wotfard", sans-serif;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: Wotfard, sans-serif;
+}
+
+.contact-info h3,
+.footer-links h3 {
+  color: #fcba29;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #fff;
+}
+
+.info-item a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+  color: #fcba29;
+}
+
+.hours-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hours-container p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
   font-size: 1.1rem;
 }
 
@@ -99,13 +146,32 @@
   color: #ccc;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .footer-wrapper {
     flex-direction: column;
     text-align: center;
   }
   
   .footer-logo {
+    align-items: center;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .info-item {
+    justify-content: center;
+  }
+
+  .footer-links {
     align-items: center;
   }
 }

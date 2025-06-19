@@ -20,6 +20,8 @@ const LanguageSwitcher = () => {
     localStorage.setItem('i18nextLng', lng);
     // Close the dropdown
     setIsOpen(false);
+    // Update HTML lang attribute to ensure proper font rendering for all languages
+    document.documentElement.lang = lng;
     // Change language without forcing page reload
     i18n.changeLanguage(lng);
   };

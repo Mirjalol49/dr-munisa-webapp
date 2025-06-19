@@ -165,7 +165,13 @@
     "services": "Services",
     "results": "Results",
     "about": "About",
-    "developer": "Developed by"
+    "developer": "Developed by",
+    "contactInfo": "Contact Information",
+    "quickLinks": "Quick Links",
+    "workDays": "Mon-Fri",
+    "weekend": "Sat-Sun",
+    "closed": "Closed",
+    "address": "Tashkent, Yunusabad district"
   },
   "language": {
     "uz": "UZ",

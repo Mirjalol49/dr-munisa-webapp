@@ -165,7 +165,13 @@
     "services": "Xizmatlar",
     "results": "Natijalar",
     "about": "Haqida",
-    "developer": "Ishlab chiqaruvchi"
+    "developer": "Ishlab chiqaruvchi",
+    "contactInfo": "Bog'lanish ma'lumotlari",
+    "quickLinks": "Tezkor havolalar",
+    "workDays": "Du-Ju",
+    "weekend": "Sh-Ya",
+    "closed": "Yopiq",
+    "address": "Toshkent, Yunusobod tumani"
   },
   "language": {
     "uz": "UZ",

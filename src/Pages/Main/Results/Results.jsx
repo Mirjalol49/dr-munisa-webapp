@@ -9,6 +9,8 @@ const Results = () => {
   const [activeTab, setActiveTab] = useState('soch');
   const [displayedImages, setDisplayedImages] = useState([]);
   const previousTabRef = useRef('soch');
+  // State to track animation
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Image arrays for each tab using useMemo to prevent unnecessary re-renders
   const tabImages = useMemo(() => ({
@@ -40,21 +42,37 @@ const Results = () => {
 
   // Update displayed images when tab changes
   useEffect(() => {
-    // Get new tab's images
-    const newTabImages = tabImages[activeTab];
+    // Start animation
+    setIsAnimating(true);
     
-    // Create a copy of the new tab's images
-    let imagesToShow = [...newTabImages];
+    // Use a timeout to allow the exit animation to complete
+    const animationTimeout = setTimeout(() => {
+      // Get new tab's images
+      const newTabImages = tabImages[activeTab];
+      
+      // Create a copy of the new tab's images
+      let imagesToShow = [...newTabImages];
+      
+      // Update the displayed images
+      setDisplayedImages(imagesToShow);
+      previousTabRef.current = activeTab;
+      
+      // End animation after a short delay to allow the enter animation to start
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 100);
+    }, 400); // This should match the exit animation duration
     
-    // We no longer add placeholders - we'll just show the actual images
-    
-    setDisplayedImages(imagesToShow);
-    previousTabRef.current = activeTab;
+    return () => {
+      clearTimeout(animationTimeout);
+    };
   }, [activeTab, tabImages]);
 
   // Handle tab click
   const handleTabClick = (tabName) => {
-    setActiveTab(tabName);
+    if (tabName !== activeTab && !isAnimating) {
+      setActiveTab(tabName);
+    }
   }
 
   return (
@@ -94,10 +112,13 @@ const Results = () => {
           </button>
         </div>
 
-        <div className='images-container'>
+        <div className={`images-container ${isAnimating ? 'container-exit' : 'container-enter'}`}>
           {displayedImages.length > 0 ? (
             displayedImages.map((image) => (
-              <div className="image-wrapper" key={image.id}>
+              <div 
+                className="image-wrapper" 
+                key={`${activeTab}-${image.id}`}
+              >
                 <ImageLoader 
                   src={image.src} 
                   alt={image.alt} 
